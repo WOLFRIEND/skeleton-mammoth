@@ -1,6 +1,6 @@
 {
   "name": "skeleton-mammoth",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Skeleton Mammoth - a powerful JavaScript library designed to enhance user experience by displaying UI skeleton loaders, also known as placeholders.",
   "files": [
     "./dist/skeleton-mammoth.min.css",
