@@ -65,8 +65,14 @@ npm install skeleton-mammoth
 ```
 
 Using jsDelivr CDN:
+
+<u>Specific version:</u>
 ```html
-<script src="https://cdn.jsdelivr.net/npm/skeleton-mammoth@1.0.0/dist/skeleton-mammoth.min.css"></script>
+<script src="https://cdn.jsdelivr.net/npm/skeleton-mammoth@1.0.3/dist/skeleton-mammoth.min.css"></script>
+```
+<u>Latest version:</u>
+```html
+<script src="https://cdn.jsdelivr.net/npm/skeleton-mammoth/dist/skeleton-mammoth.min.css"></script>
 ```
 
 ### Usage.

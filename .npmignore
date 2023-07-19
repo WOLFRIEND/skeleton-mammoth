@@ -1,3 +1,5 @@
-# Ignore all files except the ones listed below
+# Ignore all files and directories except for the specific file you want to include
 /*
+!dist/
+/dist/*
 !dist/skeleton-mammoth.min.css
