@@ -29,22 +29,22 @@
 Skeleton Mammoth - a powerful JavaScript library designed to enhance user experience
 by displaying UI skeleton loaders, also known as placeholders.
 It allows you to simulate the layout or elements of a website while data is being loaded in the background.
-With a multitude of advantages, "Skeleton Mammoth" takes your website's visual appeal to the next level.
+With a multitude of advantages, Skeleton Mammoth takes your website's visual appeal to the next level.
 
 ### Advantages.
 - **Class based**: Simply apply the appropriate classes to the elements
-  you wish to display the skeleton on, and let "Skeleton Mammoth" do the rest.
+  you wish to display the skeleton on, and let Skeleton Mammoth do the rest.
   No complex code or modifications required.
-- **Versatile and Reusable**: Enjoy the flexibility of "Skeleton Mammoth" with seamlessly integration
+- **Versatile and Reusable**: Enjoy the flexibility of Skeleton Mammoth with seamlessly integration
   without the need to develop new components or major structural changes.
-  By inheriting layouts from default styles, "Skeleton Mammoth" customize them with their own styles.
+  By inheriting layouts from default styles, Skeleton Mammoth customize them with their own styles.
 - **Configuration Flexibility**: Tailor the behavior of the library to suit your preferences with ease.
   The library provides a configuration object that allows you to adjust the settings according to your requirements.
 - **Light and Dark Theme Support**: With built-in support for both light and dark themes,
-  "Skeleton Mammoth" automatically detects the user's color scheme,
+  Skeleton Mammoth automatically detects the user's color scheme,
   or allows you to manually configure it to align perfectly with your website's aesthetic.
 - **Animation Support**: Elevate your website's dynamism with animation support.
-  "Skeleton Mammoth" detects the user's reduced motion or animations setting and adjusts accordingly.
+  Skeleton Mammoth detects the user's reduced motion or animations setting and adjusts accordingly.
   Nevertheless, it allows you to manually configure the animation preferences.
 - **Lightweight and Dependencies-Free**: The library has been developed with a focus on efficiency
   without compromising functionality. It's free from unnecessary external dependencies in order to optimize performance.
@@ -111,7 +111,7 @@ Set the child `sm-item-primary` or `sm-item-secondary` classes to the elements y
 
 #### 4. (Optional) Set the configuration object:
 
-If you would like to change the behavior of the "Skeleton Mammoth" library,
+If you would like to change the behavior of the Skeleton Mammoth library,
 you can achieve it by specifying the `JSON` object as a `data-sm-config` attribute value
 to the parent element with the `sm-loading` class.
 ```javascript
@@ -127,7 +127,7 @@ const config = JSON.stringify({
 </div>
 ```
 > **Note:**
-> For a complete list of available configurations, see the [API](#api) section.
+> For a complete list of available configurations, see the API [Props](#props) section.
 
 ### Advanced Usage.
 
@@ -264,6 +264,9 @@ API reference docs for the Skeleton Mammoth library. Learn about the props, CSS,
 | opacity  | `"0"` \| `"0.1"` \| `"0.2"` \| `"0.3"` \| `"0.4"` \| `"0.5"` \| `"0.6"` \| `"0.7"` \| `"0.8"` \| `"0.9"` \| `"1"` |     `"1"`     | Opacity of the skeleton.                         |
 
 ### CSS.
+> See the [Overriding styles with global variables](#overriding-styles-with-global-variables)
+> section for the reference on how to use API CSS.
+
 You can find all of these variables in the source file:
 [skeleton-mammoth.css](./src/styles/skeleton-mammoth.css).
 
