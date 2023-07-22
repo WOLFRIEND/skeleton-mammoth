@@ -122,9 +122,9 @@ you can achieve it by specifying the `JSON` object as a `data-sm-config` attribu
 to the parent element with the `sm-loading` class.
 ```javascript
 const config = JSON.stringify({
-  animated: false,
   theme: "dark",
-  opacity: "0.7",
+  animation: "wave",
+  orientation: "right-to-left"
 })
 ```
 ```jsx
@@ -183,9 +183,9 @@ export const Card = ({isLoading, imgUrl, title, subtitle}) => {
    * For a complete list of available configurations, see the "API" section.
    * */
   const config = JSON.stringify({
-    animated: false,
     theme: "dark",
-    opacity: "0.7",
+    animation: "wave",
+    orientation: "right-to-left"
   })
 
   return (
@@ -220,9 +220,9 @@ defineProps({
  * For a complete list of available configurations, see the "API" section.
  * */
 const config = JSON.stringify({
-    animated: false,
-    theme: "dark",
-    opacity: "0.7",
+  theme: "dark",
+  animation: "wave",
+  orientation: "right-to-left"
 })
 </script>
 
@@ -249,9 +249,9 @@ const config = JSON.stringify({
 ## Live Demo.
 <img src="https://github.com/WOLFRIEND/skeleton-mammoth/blob/main/src/images/skeleton-mammoth-demo.gif" alt="Skeleton Mammoth demo animation." style="width: 600px">
 
-Try out the Skeleton Mammoth library in action at the following link: [Live Demo](https://skeleton-mammoth-demo.onrender.com).  
+Try out the Skeleton Mammoth library in action at the following link: [Live Demo](https://skeleton-mammoth-demo.onrender.com).
 This interactive demo showcases the core features and functionality of the library.
-Try out with different options and see how it's powerful and flexible.  
+Try out with different options and see how it's powerful and flexible.
 Live demo [source code](https://github.com/WOLFRIEND/skeleton-mammoth-demo).
 
 
@@ -265,9 +265,9 @@ API reference docs for the Skeleton Mammoth library. Learn about the props, CSS,
 
 | Name     | Type                                                                                                              | Default value | Description                                      |
 |----------|-------------------------------------------------------------------------------------------------------------------|:-------------:|--------------------------------------------------|
-| animated | `boolean`                                                                                                         |    `true`     | If `true`, the skeleton animation will be shown. |
 | theme    | `"light"` \| `"dark"`                                                                                             |   `"light"`   | Color scheme of the skeleton.                    |
-| opacity  | `"0"` \| `"0.1"` \| `"0.2"` \| `"0.3"` \| `"0.4"` \| `"0.5"` \| `"0.6"` \| `"0.7"` \| `"0.8"` \| `"0.9"` \| `"1"` |     `"1"`     | Opacity of the skeleton.                         |
+| animation | `"none"` \| `"wave"` \| `"pulse"`                                                                                |    `"wave"`   |  Animation mode |
+| orientation | `"left-to-right"` \| `"right-to-left"`                                                                         |`"left-to-right"`| Affects only animation = `"wave"`            |
 
 ### CSS.
 > See the [Overriding styles with global variables](#overriding-styles-with-global-variables)

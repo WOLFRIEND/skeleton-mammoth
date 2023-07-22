@@ -76,15 +76,33 @@ Applied by default and not related to any of the color scheme.
 }
 
 /* Animations related styles. */
-@keyframes --sm--animation-shimmer {
+@keyframes --sm--animation-wave {
     to {
         background-position-x: -200%;
     }
 }
 
+@keyframes --sm--animation-wave-reverse {
+    to {
+        background-position-x: 200%;
+    }
+}
+
+@keyframes --sm--animation-pulse {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.6;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
 .sm-loading .sm-item-primary,
 .sm-loading .sm-item-secondary {
-    animation: var(--sm-animation-duration) --sm--animation-shimmer
+    animation: var(--sm-animation-duration) --sm--animation-wave
     var(--sm-animation-timing-function) var(--sm-animation-iteration-count);
 }
 
@@ -175,7 +193,7 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion
 
     .sm-loading .sm-item-primary,
     .sm-loading .sm-item-secondary {
-        animation: none;
+        animation: none !important;
     }
 
     /* Dark theme related styles. */
@@ -193,8 +211,8 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion
 Styles to apply if a configuration object is set for an HTML element
 with the class ".sm-loading" as an attribute: "data-sm-config".
 --------------------------------------------------------------------------------*/
-/* { animated: true }. */
-.sm-loading[data-sm-config*='"animated":true'] .sm-item-primary {
+/* { animation: "wave" }. */
+.sm-loading[data-sm-config*='"animation":"wave"'] .sm-item-primary {
     background: linear-gradient(
             90deg,
             transparent 40%,
@@ -205,13 +223,7 @@ with the class ".sm-loading" as an attribute: "data-sm-config".
     background-size: 200% 100%;
 }
 
-.sm-loading[data-sm-config*='"animated":true'] .sm-item-primary,
-.sm-loading[data-sm-config*='"animated":true'] .sm-item-secondary {
-    animation: var(--sm-animation-duration) --sm--animation-shimmer
-    var(--sm-animation-timing-function) var(--sm-animation-iteration-count);
-}
-
-.sm-loading[data-sm-config*='"animated":true'] .sm-item-secondary {
+.sm-loading[data-sm-config*='"animation":"wave"'] .sm-item-secondary {
     background: linear-gradient(
             90deg,
             transparent 40%,
@@ -222,10 +234,9 @@ with the class ".sm-loading" as an attribute: "data-sm-config".
     background-size: 200% 100%;
 }
 
-
 @media (prefers-color-scheme: dark) {
-    .sm-loading[data-sm-config*='"animated":true'] .sm-item-primary {
-        animation: var(--sm-animation-duration) --sm--animation-shimmer
+    .sm-loading[data-sm-config*='"animation":"wave"'] .sm-item-primary {
+        animation: var(--sm-animation-duration) --sm--animation-wave
         var(--sm-animation-timing-function) var(--sm-animation-iteration-count);
         background: linear-gradient(
                 90deg,
@@ -237,7 +248,7 @@ with the class ".sm-loading" as an attribute: "data-sm-config".
         background-size: 200% 100%;
     }
 
-    .sm-loading[data-sm-config*='"animated":true'] .sm-item-secondary {
+    .sm-loading[data-sm-config*='"animation":"wave"'] .sm-item-secondary {
         background: linear-gradient(
                 90deg,
                 transparent 40%,
@@ -249,11 +260,9 @@ with the class ".sm-loading" as an attribute: "data-sm-config".
     }
 }
 
-/* { animated: true, theme: "light" }. */
-.sm-loading[data-sm-config*='"animated":true'][data-sm-config*='"theme":"light"']
+/* { animation: "wave", theme: "light" }. */
+.sm-loading[data-sm-config*='"animation":"wave"'][data-sm-config*='"theme":"light"']
 .sm-item-primary {
-    animation: var(--sm-animation-duration) --sm--animation-shimmer
-    var(--sm-animation-timing-function) var(--sm-animation-iteration-count);
     background: rgba(var(--sm-color-light-primary));
     background: linear-gradient(
             90deg,
@@ -265,10 +274,8 @@ with the class ".sm-loading" as an attribute: "data-sm-config".
     background-size: 200% 100%;
 }
 
-.sm-loading[data-sm-config*='"animated":true'][data-sm-config*='"theme":"light"']
+.sm-loading[data-sm-config*='"animation":"wave"'][data-sm-config*='"theme":"light"']
 .sm-item-secondary {
-    animation: var(--sm-animation-duration) --sm--animation-shimmer
-    var(--sm-animation-timing-function) var(--sm-animation-iteration-count);
     background: rgba(var(--sm-color-light-secondary));
     background: linear-gradient(
             90deg,
@@ -280,11 +287,9 @@ with the class ".sm-loading" as an attribute: "data-sm-config".
     background-size: 200% 100%;
 }
 
-/* { animated: true, theme: "dark" }. */
-.sm-loading[data-sm-config*='"animated":true'][data-sm-config*='"theme":"dark"']
+/* { animation: "wave", theme: "dark" }. */
+.sm-loading[data-sm-config*='"animation":"wave"'][data-sm-config*='"theme":"dark"']
 .sm-item-primary {
-    animation: var(--sm-animation-duration) --sm--animation-shimmer
-    var(--sm-animation-timing-function) var(--sm-animation-iteration-count);
     background: rgba(var(--sm-color-dark-primary));
     background: linear-gradient(
             90deg,
@@ -296,10 +301,8 @@ with the class ".sm-loading" as an attribute: "data-sm-config".
     background-size: 200% 100%;
 }
 
-.sm-loading[data-sm-config*='"animated":true'][data-sm-config*='"theme":"dark"']
+.sm-loading[data-sm-config*='"animation":"wave"'][data-sm-config*='"theme":"dark"']
 .sm-item-secondary {
-    animation: var(--sm-animation-duration) --sm--animation-shimmer
-    var(--sm-animation-timing-function) var(--sm-animation-iteration-count);
     background: rgba(var(--sm-color-dark-secondary));
     background: linear-gradient(
             90deg,
@@ -311,48 +314,48 @@ with the class ".sm-loading" as an attribute: "data-sm-config".
     background-size: 200% 100%;
 }
 
-/* { animated: false }. */
-.sm-loading[data-sm-config*='"animated":false'] .sm-item-primary {
+/* { animation: "none" }. */
+.sm-loading[data-sm-config*='"animation":"none"'] .sm-item-primary {
     animation: none;
     background: rgba(var(--sm-color-light-primary));
 }
 
-.sm-loading[data-sm-config*='"animated":false'] .sm-item-secondary {
+.sm-loading[data-sm-config*='"animation":"none"'] .sm-item-secondary {
     animation: none;
     background: rgba(var(--sm-color-light-secondary));
 }
 
 @media (prefers-color-scheme: dark) {
-    .sm-loading[data-sm-config*='"animated":false'] .sm-item-primary {
+    .sm-loading[data-sm-config*='"animation":"none"'] .sm-item-primary {
         animation: none;
         background: rgba(var(--sm-color-dark-primary));
     }
-    .sm-loading[data-sm-config*='"animated":false'] .sm-item-secondary {
+    .sm-loading[data-sm-config*='"animation":"none"'] .sm-item-secondary {
         animation: none;
         background: rgba(var(--sm-color-dark-secondary));
     }
 }
 
-/* { animated: false, theme: "light" }. */
-.sm-loading[data-sm-config*='"animated":false'][data-sm-config*='"theme":"light"']
+/* { animation: "none", theme: "light" }. */
+.sm-loading[data-sm-config*='"animation":"none"'][data-sm-config*='"theme":"light"']
 .sm-item-primary {
     animation: none;
     background: rgba(var(--sm-color-light-primary));
 }
-.sm-loading[data-sm-config*='"animated":false'][data-sm-config*='"theme":"light"']
+.sm-loading[data-sm-config*='"animation":"none"'][data-sm-config*='"theme":"light"']
 .sm-item-secondary {
     animation: none;
     background: rgba(var(--sm-color-light-secondary));
 }
 
-/* { animated: false, theme: "dark" }. */
-.sm-loading[data-sm-config*='"animated":false'][data-sm-config*='"theme":"dark"']
+/* { animation: "none", theme: "dark" }. */
+.sm-loading[data-sm-config*='"animation":"none"'][data-sm-config*='"theme":"dark"']
 .sm-item-primary {
     animation: none;
     background: rgba(var(--sm-color-dark-primary));
 }
 
-.sm-loading[data-sm-config*='"animated":false'][data-sm-config*='"theme":"dark"']
+.sm-loading[data-sm-config*='"animation":"none"'][data-sm-config*='"theme":"dark"']
 .sm-item-secondary {
     animation: none;
     background: rgba(var(--sm-color-dark-secondary));
@@ -369,12 +372,6 @@ with the class ".sm-loading" as an attribute: "data-sm-config".
     )
     rgba(var(--sm-color-light-primary));
     background-size: 200% 100%;
-}
-
-.sm-loading[data-sm-config*='"theme":"light"'] .sm-item-primary,
-.sm-loading[data-sm-config*='"theme":"light"'] .sm-item-secondary {
-    animation: var(--sm-animation-duration) --sm--animation-shimmer
-    var(--sm-animation-timing-function) var(--sm-animation-iteration-count);
 }
 
 .sm-loading[data-sm-config*='"theme":"light"'] .sm-item-secondary {
@@ -402,12 +399,6 @@ with the class ".sm-loading" as an attribute: "data-sm-config".
     background-size: 200% 100%;
 }
 
-.sm-loading[data-sm-config*='"theme":"dark"'] .sm-item-primary,
-.sm-loading[data-sm-config*='"theme":"dark"'] .sm-item-secondary {
-    animation: var(--sm-animation-duration) --sm--animation-shimmer
-    var(--sm-animation-timing-function) var(--sm-animation-iteration-count);
-}
-
 .sm-loading[data-sm-config*='"theme":"dark"'] .sm-item-secondary {
     background: rgba(var(--sm-color-dark-secondary));
     background: linear-gradient(
@@ -420,58 +411,16 @@ with the class ".sm-loading" as an attribute: "data-sm-config".
     background-size: 200% 100%;
 }
 
-/* { opacity: "0-1"}. */
-.sm-loading[data-sm-config*='"opacity":"0"'] .sm-item-primary,
-.sm-loading[data-sm-config*='"opacity":"0"'] .sm-item-secondary {
-    opacity: 0;
+/* { orientation: "right-to-left" } */
+.sm-loading[data-sm-config*='"animation":"wave"'][data-sm-config*='"orientation":"right-to-left"'] .sm-item-primary,
+.sm-loading[data-sm-config*='"animation":"wave"'][data-sm-config*='"orientation":"right-to-left"'] .sm-item-secondary {
+    animation: var(--sm-animation-duration) --sm--animation-wave-reverse
+    var(--sm-animation-timing-function) var(--sm-animation-iteration-count);
 }
 
-.sm-loading[data-sm-config*='"opacity":"0.1"'] .sm-item-primary,
-.sm-loading[data-sm-config*='"opacity":"0.1"'] .sm-item-secondary {
-    opacity: .1;
-}
-
-.sm-loading[data-sm-config*='"opacity":"0.2"'] .sm-item-primary,
-.sm-loading[data-sm-config*='"opacity":"0.2"'] .sm-item-secondary {
-    opacity: .2;
-}
-
-.sm-loading[data-sm-config*='"opacity":"0.3"'] .sm-item-primary,
-.sm-loading[data-sm-config*='"opacity":"0.3"'] .sm-item-secondary {
-    opacity: .3;
-}
-
-.sm-loading[data-sm-config*='"opacity":"0.4"'] .sm-item-primary,
-.sm-loading[data-sm-config*='"opacity":"0.4"'] .sm-item-secondary {
-    opacity: .4;
-}
-
-.sm-loading[data-sm-config*='"opacity":"0.5"'] .sm-item-primary,
-.sm-loading[data-sm-config*='"opacity":"0.5"'] .sm-item-secondary {
-    opacity: .5;
-}
-
-.sm-loading[data-sm-config*='"opacity":"0.6"'] .sm-item-primary,
-.sm-loading[data-sm-config*='"opacity":"0.6"'] .sm-item-secondary {
-    opacity: .6;
-}
-
-.sm-loading[data-sm-config*='"opacity":"0.7"'] .sm-item-primary,
-.sm-loading[data-sm-config*='"opacity":"0.7"'] .sm-item-secondary {
-    opacity: .7;
-}
-
-.sm-loading[data-sm-config*='"opacity":"0.8"'] .sm-item-primary,
-.sm-loading[data-sm-config*='"opacity":"0.8"'] .sm-item-secondary {
-    opacity: .8;
-}
-
-.sm-loading[data-sm-config*='"opacity":"0.9"'] .sm-item-primary,
-.sm-loading[data-sm-config*='"opacity":"0.9"'] .sm-item-secondary {
-    opacity: .9;
-}
-
-.sm-loading[data-sm-config*='"opacity":"1"'] .sm-item-primary,
-.sm-loading[data-sm-config*='"opacity":"1"'] .sm-item-secondary {
-    opacity: 1;
+/* { animation: "pulse" } */
+.sm-loading[data-sm-config*='"animation":"pulse"'] .sm-item-primary,
+.sm-loading[data-sm-config*='"animation":"pulse"'] .sm-item-secondary {
+    animation: var(--sm-animation-duration) --sm--animation-pulse
+    var(--sm-animation-timing-function) var(--sm-animation-iteration-count);
 }
