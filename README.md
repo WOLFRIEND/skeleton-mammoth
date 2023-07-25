@@ -122,7 +122,7 @@ you can achieve it by specifying the `JSON` object as a `data-sm-config` attribu
 to the parent element with the `sm-loading` class.
 ```javascript
 const config = JSON.stringify({
-  animated: false,
+  animation: "none",
   theme: "dark",
   opacity: "0.7",
 })
@@ -183,7 +183,7 @@ export const Card = ({isLoading, imgUrl, title, subtitle}) => {
    * For a complete list of available configurations, see the "API" section.
    * */
   const config = JSON.stringify({
-    animated: false,
+    animation: "none",
     theme: "dark",
     opacity: "0.7",
   })
@@ -220,7 +220,7 @@ defineProps({
  * For a complete list of available configurations, see the "API" section.
  * */
 const config = JSON.stringify({
-    animated: false,
+    animation: "none",
     theme: "dark",
     opacity: "0.7",
 })
@@ -263,11 +263,11 @@ API reference docs for the Skeleton Mammoth library. Learn about the props, CSS,
 > See the [Set the configuration object](#4-optional-set-the-configuration-object) section for the reference
 > on how to use API props.
 
-| Name     | Type                                                                                                              | Default value | Description                                      |
-|----------|-------------------------------------------------------------------------------------------------------------------|:-------------:|--------------------------------------------------|
-| animated | `boolean`                                                                                                         |    `true`     | If `true`, the skeleton animation will be shown. |
-| theme    | `"light"` \| `"dark"`                                                                                             |   `"light"`   | Color scheme of the skeleton.                    |
-| opacity  | `"0"` \| `"0.1"` \| `"0.2"` \| `"0.3"` \| `"0.4"` \| `"0.5"` \| `"0.6"` \| `"0.7"` \| `"0.8"` \| `"0.9"` \| `"1"` |     `"1"`     | Opacity of the skeleton.                         |
+| Name      | Type                                                                                                              | Default value | Description                   |
+|-----------|-------------------------------------------------------------------------------------------------------------------|:-------------:|-------------------------------|
+| animation | `"none"` \| `"wave"` \| `"wave-reverse"` \| `"pulse"`                                                             |    `"wave"`     | Skeleton animation mode.      |
+| theme     | `"light"` \| `"dark"`                                                                                             |   `"light"`   | Color scheme of the skeleton. |
+| opacity   | `"0"` \| `"0.1"` \| `"0.2"` \| `"0.3"` \| `"0.4"` \| `"0.5"` \| `"0.6"` \| `"0.7"` \| `"0.8"` \| `"0.9"` \| `"1"` |     `"1"`     | Opacity of the skeleton.      |
 
 ### CSS.
 > See the [Overriding styles with global variables](#overriding-styles-with-global-variables)
