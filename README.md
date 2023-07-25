@@ -122,7 +122,7 @@ you can achieve it by specifying the `JSON` object as a `data-sm-config` attribu
 to the parent element with the `sm-loading` class.
 ```javascript
 const config = JSON.stringify({
-  animated: false,
+  animation: "none",
   theme: "dark",
   opacity: "0.7",
 })
@@ -183,7 +183,7 @@ export const Card = ({isLoading, imgUrl, title, subtitle}) => {
    * For a complete list of available configurations, see the "API" section.
    * */
   const config = JSON.stringify({
-    animated: false,
+    animation: "none",
     theme: "dark",
     opacity: "0.7",
   })
@@ -220,7 +220,7 @@ defineProps({
  * For a complete list of available configurations, see the "API" section.
  * */
 const config = JSON.stringify({
-    animated: false,
+    animation: "none",
     theme: "dark",
     opacity: "0.7",
 })
@@ -263,11 +263,11 @@ API reference docs for the Skeleton Mammoth library. Learn about the props, CSS,
 > See the [Set the configuration object](#4-optional-set-the-configuration-object) section for the reference
 > on how to use API props.
 
-| Name     | Type                                                                                                              | Default value | Description                                      |
-|----------|-------------------------------------------------------------------------------------------------------------------|:-------------:|--------------------------------------------------|
-| animated | `boolean`                                                                                                         |    `true`     | If `true`, the skeleton animation will be shown. |
-| theme    | `"light"` \| `"dark"`                                                                                             |   `"light"`   | Color scheme of the skeleton.                    |
-| opacity  | `"0"` \| `"0.1"` \| `"0.2"` \| `"0.3"` \| `"0.4"` \| `"0.5"` \| `"0.6"` \| `"0.7"` \| `"0.8"` \| `"0.9"` \| `"1"` |     `"1"`     | Opacity of the skeleton.                         |
+| Name      | Type                                                                                                              | Default value | Description                   |
+|-----------|-------------------------------------------------------------------------------------------------------------------|:-------------:|-------------------------------|
+| animation | `"none"` \| `"wave"` \| `"wave-reverse"` \| `"pulse"`                                                             |    `"wave"`     | Skeleton animation mode.      |
+| theme     | `"light"` \| `"dark"`                                                                                             |   `"light"`   | Color scheme of the skeleton. |
+| opacity   | `"0"` \| `"0.1"` \| `"0.2"` \| `"0.3"` \| `"0.4"` \| `"0.5"` \| `"0.6"` \| `"0.7"` \| `"0.8"` \| `"0.9"` \| `"1"` |     `"1"`     | Opacity of the skeleton.      |
 
 ### CSS.
 > See the [Overriding styles with global variables](#overriding-styles-with-global-variables)
@@ -288,7 +288,7 @@ You can find all of these variables in the source file:
 | --sm-color-dark-animation-secondary  | `color-mix( in srgb, #fff 2%, rgba(var(--sm-color-dark-secondary)))`   | Animation color of the secondary element (with the class `sm-item-secondary`) for the dark theme.                                                                                                         |
 | --sm-animation-duration              | `1.5s`                                                                 | The [animation-duration](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-duration) CSS property sets the length of time that an animation takes to complete one cycle.                         |
 | --sm-animation-timing-function       | `linear`                                                               | The [animation-timing-function](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-timing-function) CSS property sets how an animation progresses through the duration of each cycle.             |
-| --sm-animation-timing-function       | `infinite`                                                             | The [animation-iteration-count](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-iteration-count) CSS property sets the number of times an animation sequence should be played before stopping. |
+| --sm-animation-iteration-count       | `infinite`                                                             | The [animation-iteration-count](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-iteration-count) CSS property sets the number of times an animation sequence should be played before stopping. |
 
 ## Contributing.
 Please see the <a href="https://github.com/WOLFRIEND/skeleton-mammoth/blob/main/CONTRIBUTING.md">Contributing</a> guideline.
