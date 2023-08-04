@@ -1,0 +1,154 @@
+@import "variables/colors";
+@import "variables/animations";
+@import "variables/props";
+@import "animations";
+@import "mixins/animations";
+@import "mixins/configuration-object";
+@import "mixins/accessibility";
+@import "base-styles";
+
+/* Light theme.
+The library's default color scheme.
+Styles applied to the light color scheme by default.
+--------------------------------------------------------------------------------*/
+.sm-loading {
+  .sm-item-primary {
+    @include mixin-sm-animate-loading(
+      $--sm-animation-wave,
+      $--sm-color-light-animation-primary,
+      $--sm-color-light-primary
+    );
+  }
+
+  .sm-item-secondary {
+    @include mixin-sm-animate-loading(
+      $--sm-animation-wave,
+      $--sm-color-light-animation-secondary,
+      $--sm-color-light-secondary
+    );
+  }
+}
+
+/* Dark theme.
+Styles to apply if a user's device settings are set to use dark color scheme.
+https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme
+--------------------------------------------------------------------------------*/
+@media (prefers-color-scheme: dark) {
+  .sm-loading {
+    .sm-item-primary {
+      @include mixin-sm-animate-loading(
+        $--sm-animation-wave,
+        $--sm-color-dark-animation-primary,
+        $--sm-color-dark-primary
+      );
+    }
+
+    .sm-item-secondary {
+      @include mixin-sm-animate-loading(
+        $--sm-animation-wave,
+        $--sm-color-dark-animation-secondary,
+        $--sm-color-dark-secondary
+      );
+    }
+  }
+}
+
+/* Accessibility.
+Disable animations if a user's device settings are set to reduced motion.
+https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion
+--------------------------------------------------------------------------------*/
+.sm-loading {
+  @include mixin-apply-accessibility-reduced-motion();
+}
+
+/* Configuration.
+Styles to apply if a configuration object is set for an HTML element
+with the class ".sm-loading" as an attribute: "data-sm-config".
+--------------------------------------------------------------------------------*/
+/* { animation: "wave" }. */
+.sm-loading[data-sm-config*='"#{$--sm-props-animation-name}":"#{$--sm-props-animation-type-wave}"'] {
+  @include mixin-apply-configuration-object-animation-and-theme("#{$--sm-props-animation-type-wave}");
+}
+/* { animation: "wave-reverse" }. */
+.sm-loading[data-sm-config*='"#{$--sm-props-animation-name}":"#{$--sm-props-animation-type-wave-reverse}"'] {
+  @include mixin-apply-configuration-object-animation-and-theme("#{$--sm-props-animation-type-wave-reverse}");
+}
+/* { animation: "pulse" }. */
+.sm-loading[data-sm-config*='"#{$--sm-props-animation-name}":"#{$--sm-props-animation-type-pulse}"'] {
+  @include mixin-apply-configuration-object-animation-and-theme("#{$--sm-props-animation-type-pulse}");
+}
+/* { animation: "wave", theme: "light" }. */
+.sm-loading[data-sm-config*='"#{$--sm-props-animation-name}":"#{$--sm-props-animation-type-wave}"'][data-sm-config*='"#{$--sm-props-theme-name}":"#{$--sm-props-theme-type-light}"'] {
+  @include mixin-apply-configuration-object-animation-and-theme(
+    "#{$--sm-props-animation-type-wave}",
+    "#{$--sm-props-theme-type-light}"
+  );
+}
+/* { animation: "wave-reverse", theme: "light" }. */
+.sm-loading[data-sm-config*='"#{$--sm-props-animation-name}":"#{$--sm-props-animation-type-wave-reverse}"'][data-sm-config*='"#{$--sm-props-theme-name}":"#{$--sm-props-theme-type-light}"'] {
+  @include mixin-apply-configuration-object-animation-and-theme(
+    "#{$--sm-props-animation-type-wave-reverse}",
+    "#{$--sm-props-theme-type-light}"
+  );
+}
+/* { animation: "pulse", theme: "light" }. */
+.sm-loading[data-sm-config*='"#{$--sm-props-animation-name}":"#{$--sm-props-animation-type-pulse}"'][data-sm-config*='"#{$--sm-props-theme-name}":"#{$--sm-props-theme-type-light}"'] {
+  @include mixin-apply-configuration-object-animation-and-theme(
+    "#{$--sm-props-animation-type-pulse}",
+    "#{$--sm-props-theme-type-light}"
+  );
+}
+/* { animation: "wave", theme: "dark" }. */
+.sm-loading[data-sm-config*='"#{$--sm-props-animation-name}":"#{$--sm-props-animation-type-wave}"'][data-sm-config*='"#{$--sm-props-theme-name}":"#{$--sm-props-theme-type-dark}"'] {
+  @include mixin-apply-configuration-object-animation-and-theme(
+    "#{$--sm-props-animation-type-wave}",
+    "#{$--sm-props-theme-type-dark}"
+  );
+}
+/* { animation: "wave-reverse", theme: "dark" }. */
+.sm-loading[data-sm-config*='"#{$--sm-props-animation-name}":"#{$--sm-props-animation-type-wave-reverse}"'][data-sm-config*='"#{$--sm-props-theme-name}":"#{$--sm-props-theme-type-dark}"'] {
+  @include mixin-apply-configuration-object-animation-and-theme(
+    "#{$--sm-props-animation-type-wave-reverse}",
+    "#{$--sm-props-theme-type-dark}"
+  );
+}
+/* { animation: "pulse", theme: "dark" }. */
+.sm-loading[data-sm-config*='"#{$--sm-props-animation-name}":"#{$--sm-props-animation-type-pulse}"'][data-sm-config*='"#{$--sm-props-theme-name}":"#{$--sm-props-theme-type-dark}"'] {
+  @include mixin-apply-configuration-object-animation-and-theme(
+    "#{$--sm-props-animation-type-pulse}",
+    "#{$--sm-props-theme-type-dark}"
+  );
+}
+/* { animation: "none" }. */
+.sm-loading[data-sm-config*='"#{$--sm-props-animation-name}":"#{$--sm-props-animation-type-none}"'] {
+  @include mixin-apply-configuration-object-animation-and-theme("#{$--sm-props-animation-type-none}");
+}
+/* { animation: "none", theme: "light" }. */
+.sm-loading[data-sm-config*='"#{$--sm-props-animation-name}":"#{$--sm-props-animation-type-none}"'][data-sm-config*='"#{$--sm-props-theme-name}":"#{$--sm-props-theme-type-light}"'] {
+  @include mixin-apply-configuration-object-animation-and-theme(
+    "#{$--sm-props-animation-type-none}",
+    "#{$--sm-props-theme-type-light}"
+  );
+}
+/* { animation: "none", theme: "dark" }. */
+.sm-loading[data-sm-config*='"#{$--sm-props-animation-name}":"#{$--sm-props-animation-type-none}"'][data-sm-config*='"#{$--sm-props-theme-name}":"#{$--sm-props-theme-type-dark}"'] {
+  @include mixin-apply-configuration-object-animation-and-theme(
+    "#{$--sm-props-animation-type-none}",
+    "#{$--sm-props-theme-type-dark}"
+  );
+}
+/* { theme: "light" }. */
+.sm-loading[data-sm-config*='"#{$--sm-props-theme-name}":"#{$--sm-props-theme-type-light}"'] {
+  @include mixin-apply-configuration-object-animation-and-theme(null, "#{$--sm-props-theme-type-light}");
+}
+/* { theme: "dark" }. */
+.sm-loading[data-sm-config*='"#{$--sm-props-theme-name}":"#{$--sm-props-theme-type-dark}"'] {
+  @include mixin-apply-configuration-object-animation-and-theme(null, "#{$--sm-props-theme-type-dark}");
+}
+
+/* { opacity: "0-1"}. */
+@each $opacity in $--sm-props-opacities-types {
+  .sm-loading[data-sm-config*='"#{$--sm-props-opacity-name}":"#{$opacity}"'] {
+    opacity: $opacity;
+  }
+}

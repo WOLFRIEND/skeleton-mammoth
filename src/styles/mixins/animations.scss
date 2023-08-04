@@ -1,0 +1,23 @@
+@import "../variables/props";
+@import "../variables/animations";
+@mixin mixin-sm-animate-loading($animation, $animationColor, $backgroundColor) {
+  animation: $animation;
+
+  @if $animation == $--sm-animation-pulse or $animation == $--sm-animation-none {
+    background: rgba($backgroundColor);
+  } @else {
+    background: linear-gradient(90deg, transparent 40%, $animationColor 50%, transparent 60%) rgba($backgroundColor);
+    background-size: 200% 100%;
+  }
+
+  /* Accessibility.
+  Disable animations if a user's device settings are set to reduced motion.
+  https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion
+  Should be duplicated here due to the CSS rule precedence.
+  --------------------------------------------------------------------------------*/
+  //@include mixin-apply-accessibility-reduced-motion();
+  @media (prefers-reduced-motion) {
+    animation: $--sm-animation-none;
+    background: rgba($backgroundColor);
+  }
+}

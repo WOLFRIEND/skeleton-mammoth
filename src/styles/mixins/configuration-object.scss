@@ -1,0 +1,255 @@
+@import "animations";
+@import "../variables/animations";
+@import "../variables/colors";
+@import "../variables/props";
+@import "accessibility";
+
+@mixin mixin-apply-configuration-object-animation-and-theme($animation: null, $theme: null) {
+  @if $animation == $--sm-props-animation-type-wave and $theme == $--sm-props-theme-type-light {
+    .sm-item-primary {
+      @include mixin-sm-animate-loading(
+        $--sm-animation-wave,
+        $--sm-color-light-animation-primary,
+        $--sm-color-light-primary
+      );
+    }
+    .sm-item-secondary {
+      @include mixin-sm-animate-loading(
+        $--sm-animation-wave,
+        $--sm-color-light-animation-secondary,
+        $--sm-color-light-secondary
+      );
+    }
+  } @else if $animation == $--sm-props-animation-type-wave and $theme == $--sm-props-theme-type-dark {
+    .sm-item-primary {
+      @include mixin-sm-animate-loading(
+        $--sm-animation-wave,
+        $--sm-color-dark-animation-primary,
+        $--sm-color-dark-primary
+      );
+    }
+    .sm-item-secondary {
+      @include mixin-sm-animate-loading(
+        $--sm-animation-wave,
+        $--sm-color-dark-animation-secondary,
+        $--sm-color-dark-secondary
+      );
+    }
+  } @else if $animation == $--sm-props-animation-type-wave {
+    .sm-item-primary {
+      @include mixin-sm-animate-loading(
+        $--sm-animation-wave,
+        $--sm-color-light-animation-primary,
+        $--sm-color-light-primary
+      );
+    }
+    .sm-item-secondary {
+      @include mixin-sm-animate-loading(
+        $--sm-animation-wave,
+        $--sm-color-light-animation-secondary,
+        $--sm-color-light-secondary
+      );
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .sm-item-primary {
+        @include mixin-sm-animate-loading(
+          $--sm-animation-wave,
+          $--sm-color-dark-animation-primary,
+          $--sm-color-dark-primary
+        );
+      }
+      .sm-item-secondary {
+        @include mixin-sm-animate-loading(
+          $--sm-animation-wave,
+          $--sm-color-dark-animation-secondary,
+          $--sm-color-dark-secondary
+        );
+      }
+    }
+  } @else if $animation == $--sm-props-animation-type-wave-reverse and $theme == $--sm-props-theme-type-light {
+    .sm-item-primary {
+      @include mixin-sm-animate-loading(
+        $--sm-animation-wave-reverse,
+        $--sm-color-light-animation-primary,
+        $--sm-color-light-primary
+      );
+    }
+    .sm-item-secondary {
+      @include mixin-sm-animate-loading(
+        $--sm-animation-wave-reverse,
+        $--sm-color-light-animation-secondary,
+        $--sm-color-light-secondary
+      );
+    }
+  } @else if $animation == $--sm-props-animation-type-wave-reverse and $theme == $--sm-props-theme-type-dark {
+    .sm-item-primary {
+      @include mixin-sm-animate-loading(
+        $--sm-animation-wave-reverse,
+        $--sm-color-dark-animation-primary,
+        $--sm-color-dark-primary
+      );
+    }
+    .sm-item-secondary {
+      @include mixin-sm-animate-loading(
+        $--sm-animation-wave-reverse,
+        $--sm-color-dark-animation-secondary,
+        $--sm-color-dark-secondary
+      );
+    }
+  } @else if $animation == $--sm-props-animation-type-wave-reverse {
+    .sm-item-primary {
+      @include mixin-sm-animate-loading(
+        $--sm-animation-wave-reverse,
+        $--sm-color-light-animation-primary,
+        $--sm-color-light-primary
+      );
+    }
+    .sm-item-secondary {
+      @include mixin-sm-animate-loading(
+        $--sm-animation-wave-reverse,
+        $--sm-color-light-animation-secondary,
+        $--sm-color-light-secondary
+      );
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .sm-item-primary {
+        @include mixin-sm-animate-loading(
+          $--sm-animation-wave-reverse,
+          $--sm-color-dark-animation-primary,
+          $--sm-color-dark-primary
+        );
+      }
+      .sm-item-secondary {
+        @include mixin-sm-animate-loading(
+          $--sm-animation-wave-reverse,
+          $--sm-color-dark-animation-secondary,
+          $--sm-color-dark-secondary
+        );
+      }
+    }
+  } @else if $animation == $--sm-props-animation-type-pulse and $theme == $--sm-props-theme-type-light {
+    .sm-item-primary {
+      @include mixin-sm-animate-loading(
+        $--sm-animation-pulse,
+        $--sm-color-light-animation-primary,
+        $--sm-color-light-primary
+      );
+    }
+    .sm-item-secondary {
+      @include mixin-sm-animate-loading(
+        $--sm-animation-pulse,
+        $--sm-color-light-animation-secondary,
+        $--sm-color-light-secondary
+      );
+    }
+  } @else if $animation == $--sm-props-animation-type-pulse and $theme == $--sm-props-theme-type-dark {
+    .sm-item-primary {
+      @include mixin-sm-animate-loading(
+        $--sm-animation-pulse,
+        $--sm-color-dark-animation-primary,
+        $--sm-color-dark-primary
+      );
+    }
+    .sm-item-secondary {
+      @include mixin-sm-animate-loading(
+        $--sm-animation-pulse,
+        $--sm-color-dark-animation-secondary,
+        $--sm-color-dark-secondary
+      );
+    }
+  } @else if $animation == $--sm-props-animation-type-pulse {
+    .sm-item-primary {
+      @include mixin-sm-animate-loading(
+        $--sm-animation-pulse,
+        $--sm-color-light-animation-primary,
+        $--sm-color-light-primary
+      );
+    }
+    .sm-item-secondary {
+      @include mixin-sm-animate-loading(
+        $--sm-animation-pulse,
+        $--sm-color-light-animation-secondary,
+        $--sm-color-light-secondary
+      );
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .sm-item-primary {
+        @include mixin-sm-animate-loading(
+          $--sm-animation-pulse,
+          $--sm-color-dark-animation-primary,
+          $--sm-color-dark-primary
+        );
+      }
+      .sm-item-secondary {
+        @include mixin-sm-animate-loading(
+          $--sm-animation-pulse,
+          $--sm-color-dark-animation-secondary,
+          $--sm-color-dark-secondary
+        );
+      }
+    }
+  } @else if $animation == $--sm-props-animation-type-none and $theme == $--sm-props-theme-type-light {
+    .sm-item-primary {
+      @include mixin-sm-animate-loading($--sm-animation-none, null, $--sm-color-light-primary);
+    }
+    .sm-item-secondary {
+      @include mixin-sm-animate-loading($--sm-animation-none, null, $--sm-color-light-secondary);
+    }
+  } @else if $animation == $--sm-props-animation-type-none and $theme == $--sm-props-theme-type-dark {
+    .sm-item-primary {
+      @include mixin-sm-animate-loading($--sm-animation-none, null, $--sm-color-dark-primary);
+    }
+    .sm-item-secondary {
+      @include mixin-sm-animate-loading($--sm-animation-none, null, $--sm-color-dark-secondary);
+    }
+  } @else if $animation == $--sm-props-animation-type-none {
+    .sm-item-primary {
+      @include mixin-sm-animate-loading($--sm-animation-none, null, $--sm-color-light-primary);
+    }
+    .sm-item-secondary {
+      @include mixin-sm-animate-loading($--sm-animation-none, null, $--sm-color-light-secondary);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .sm-item-primary {
+        @include mixin-sm-animate-loading($--sm-animation-none, null, $--sm-color-dark-primary);
+      }
+      .sm-item-secondary {
+        @include mixin-sm-animate-loading($--sm-animation-none, null, $--sm-color-dark-secondary);
+      }
+    }
+  } @else if $theme == $--sm-props-theme-type-light {
+    .sm-item-primary {
+      @include mixin-sm-animate-loading(
+        $--sm-animation-wave,
+        $--sm-color-light-animation-primary,
+        $--sm-color-light-primary
+      );
+    }
+    .sm-item-secondary {
+      @include mixin-sm-animate-loading(
+        $--sm-animation-wave,
+        $--sm-color-light-animation-secondary,
+        $--sm-color-light-secondary
+      );
+    }
+  } @else if $theme == $--sm-props-theme-type-dark {
+    .sm-item-primary {
+      @include mixin-sm-animate-loading(
+        $--sm-animation-wave,
+        $--sm-color-dark-animation-primary,
+        $--sm-color-dark-primary
+      );
+    }
+    .sm-item-secondary {
+      @include mixin-sm-animate-loading(
+        $--sm-animation-wave,
+        $--sm-color-dark-animation-secondary,
+        $--sm-color-dark-secondary
+      );
+    }
+  }
+}

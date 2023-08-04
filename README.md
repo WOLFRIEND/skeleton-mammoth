@@ -26,7 +26,7 @@
 - [Contact information.](#contact-information)
 
 ## What is Skeleton Mammoth?
-Skeleton Mammoth - a powerful JavaScript library designed to enhance user experience
+Skeleton Mammoth - a powerful CSS library designed to enhance user experience
 by displaying UI skeleton loaders, also known as placeholders.
 It allows you to simulate the layout or elements of a website while data is being loaded in the background.
 With a multitude of advantages, Skeleton Mammoth takes your website's visual appeal to the next level.
@@ -43,9 +43,9 @@ With a multitude of advantages, Skeleton Mammoth takes your website's visual app
 - **Light and Dark Theme Support**: With built-in support for both light and dark themes,
   Skeleton Mammoth automatically detects the user's color scheme,
   or allows you to manually configure it to align perfectly with your website's aesthetic.
-- **Animation Support**: Elevate your website's dynamism with animation support.
+- **Animations Support**: Elevate your website's dynamism with animations support.
   Skeleton Mammoth detects the user's reduced motion or animations setting and adjusts accordingly.
-  Nevertheless, it allows you to manually configure the animation preferences.
+  Nevertheless, it allows you to manually configure the animation preferences and has support for several varieties of animations.
 - **Lightweight and Dependencies-Free**: The library has been developed with a focus on efficiency
   without compromising functionality. It's free from unnecessary external dependencies in order to optimize performance.
   That makes it lightweight and easy to maintenance.
@@ -68,7 +68,7 @@ Using jsDelivr CDN:
 
 <u>Specific version:</u>
 ```html
-<script src="https://cdn.jsdelivr.net/npm/skeleton-mammoth@1.0.3/dist/skeleton-mammoth.min.css"></script>
+<script src="https://cdn.jsdelivr.net/npm/skeleton-mammoth@2.1.0/dist/skeleton-mammoth.min.css"></script>
 ```
 <u>Latest version:</u>
 ```html
@@ -167,8 +167,8 @@ variables in your own `*.css` file inside the
 ```
 
 For a complete list of available CSS variables, see the API [CSS](#css) section,
-or find them in the source file:
-<a href="https://github.com/WOLFRIEND/skeleton-mammoth/blob/main/src/styles/skeleton-mammoth.css">skeleton-mammoth.css</a>
+or find them in the source files:
+<a href="https://github.com/WOLFRIEND/skeleton-mammoth/blob/main/src/styles/variables">variables</a>.
 
 
 ## Examples.
@@ -273,22 +273,35 @@ API reference docs for the Skeleton Mammoth library. Learn about the props, CSS,
 > See the [Overriding styles with global variables](#overriding-styles-with-global-variables)
 > section for the reference on how to use API CSS.
 
-You can find all of these variables in the source file:
-[skeleton-mammoth.css](./src/styles/skeleton-mammoth.css).
+#### Colors.
+You can find all color variables in the source file:
+[colors.scss](./src/styles/variables/colors.scss).
 
 | Global variable name                 | Default value                                                          | Description                                                                                                                                                                                               |
 |--------------------------------------|------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --sm-color-light-primary             | `204, 204, 204, 1`                                                     | Color of the primary element (with the class `sm-item-primary`) for the light theme.                                                                                                                      |
-| --sm-color-light-secondary           | `227, 227, 227, 1`                                                     | Color of the secondary element (with the class `sm-item-secondary`) for the light theme.                                                                                                                  |
+| --sm-color-light-primary             | `204, 204, 204, 1`                                                     | Background color of the primary element (with the class `sm-item-primary`) for the light theme.                                                                                                           |
+| --sm-color-light-secondary           | `227, 227, 227, 1`                                                     | Background color of the secondary element (with the class `sm-item-secondary`) for the light theme.                                                                                                       |
 | --sm-color-light-animation-primary   | `color-mix( in srgb, #fff 15%, rgba(var(--sm-color-light-primary)))`   | Animation color of the primary element (with the class `sm-item-primary`) for the light theme.                                                                                                            |
 | --sm-color-light-animation-secondary | `color-mix( in srgb, #fff 15%, rgba(var(--sm-color-light-secondary)))` | Animation color of the secondary element (with the class `sm-item-secondary`) for the light theme.                                                                                                        |
-| --sm-color-dark-primary              | `37, 37, 37, 1`                                                        | Color of the primary element (with the class `sm-item-primary`) for the dark theme.                                                                                                                       |
-| --sm-color-dark-secondary            | `41, 41, 41, 1`                                                        | Color of the secondary element (with the class `sm-item-secondary`) for the dark theme.                                                                                                                   |
+| --sm-color-dark-primary              | `37, 37, 37, 1`                                                        | Background color of the primary element (with the class `sm-item-primary`) for the dark theme.                                                                                                            |
+| --sm-color-dark-secondary            | `41, 41, 41, 1`                                                        | Background color of the secondary element (with the class `sm-item-secondary`) for the dark theme.                                                                                                        |
 | --sm-color-dark-animation-primary    | `color-mix( in srgb, #fff 2%, rgba(var(--sm-color-dark-primary)))`     | Animation color of the primary element (with the class `sm-item-primary`) for the dark theme.                                                                                                             |
 | --sm-color-dark-animation-secondary  | `color-mix( in srgb, #fff 2%, rgba(var(--sm-color-dark-secondary)))`   | Animation color of the secondary element (with the class `sm-item-secondary`) for the dark theme.                                                                                                         |
-| --sm-animation-duration              | `1.5s`                                                                 | The [animation-duration](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-duration) CSS property sets the length of time that an animation takes to complete one cycle.                         |
-| --sm-animation-timing-function       | `linear`                                                               | The [animation-timing-function](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-timing-function) CSS property sets how an animation progresses through the duration of each cycle.             |
-| --sm-animation-iteration-count       | `infinite`                                                             | The [animation-iteration-count](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-iteration-count) CSS property sets the number of times an animation sequence should be played before stopping. |
+
+#### Animations.
+You can find all animation variables in the source file:
+[animations.scss](./src/styles/variables/animations.scss).
+
+| Global variable name           | Default value                                                                                                                        | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+|--------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --sm-animation-duration        | `1.5s`                                                                                                                               | The [animation-duration](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-duration) CSS property sets the length of time that an animation takes to complete one cycle.                                                                                                                                                                                                                                                                                                                                                                      |
+| --sm-animation-timing-function | `linear`                                                                                                                             | The [animation-timing-function](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-timing-function) CSS property sets how an animation progresses through the duration of each cycle.                                                                                                                                                                                                                                                                                                                                                          |
+| --sm-animation-iteration-count | `infinite`                                                                                                                           | The [animation-iteration-count](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-iteration-count) CSS property sets the number of times an animation sequence should be played before stopping.                                                                                                                                                                                                                                                                                                                                              |
+| --sm-animation-none            | `none`                                                                                                                               | Sets `"none"` animation configuration for the `animation` props.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --sm-animation-wave            | `--sm--animation-wave var(--sm-animation-duration) var(--sm-animation-timing-function) var(--sm-animation-iteration-count);`         | Sets `"wave"` animation configuration for the `animation` props. Which includes the following options: <ul><li>[animation-name](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-name)</li><li>[animation-duration](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-duration)</li> <li>[animation-timing-function](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-timing-function)</li> <li>[animation-iteration-count](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-iteration-count)</li></ul>         |
+| --sm-animation-wave-reverse    | `--sm--animation-wave-reverse var(--sm-animation-duration) var(--sm-animation-timing-function) var(--sm-animation-iteration-count);` | Sets `"wave-reverse"` animation configuration for the `animation` props. Which includes the following options: <ul><li>[animation-name](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-name)</li><li>[animation-duration](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-duration)</li> <li>[animation-timing-function](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-timing-function)</li> <li>[animation-iteration-count](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-iteration-count)</li></ul> |
+| --sm-animation-pulse           | `--sm--animation-pulse var(--sm-animation-duration) var(--sm-animation-timing-function) var(--sm-animation-iteration-count);`        | Sets `"pulse"` animation configuration for the `animation` props. Which includes the following options: <ul><li>[animation-name](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-name)</li><li>[animation-duration](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-duration)</li> <li>[animation-timing-function](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-timing-function)</li> <li>[animation-iteration-count](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-iteration-count)</li></ul>        |
+
 
 ## Contributing.
 Please see the <a href="https://github.com/WOLFRIEND/skeleton-mammoth/blob/main/CONTRIBUTING.md">Contributing</a> guideline.
