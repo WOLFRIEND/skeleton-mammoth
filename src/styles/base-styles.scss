@@ -1,0 +1,35 @@
+/* Base styles.
+Applied by default and not related to any of the color scheme or setting.
+--------------------------------------------------------------------------------*/
+.sm-loading {
+  .sm-item-primary,
+  .sm-item-secondary {
+    border-color: transparent !important;
+    color: transparent !important;
+    cursor: wait;
+    outline: none;
+    position: relative;
+    user-select: none;
+
+    &:before {
+      clip: rect(1px, 1px, 1px, 1px);
+      content: "Loading, please wait.";
+      inset: 0;
+      overflow: hidden;
+      position: absolute;
+      white-space: nowrap;
+    }
+
+    &::placeholder {
+      color: transparent !important;
+    }
+
+    * {
+      visibility: hidden;
+    }
+
+    :empty:after {
+      content: "\00a0";
+    }
+  }
+}
