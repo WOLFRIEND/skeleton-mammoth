@@ -5,7 +5,7 @@ const path = require("path");
 
 module.exports = {
     mode: 'production',
-    entry: './src/styles/skeleton-mammoth.css',
+    entry: './src/styles/skeleton-mammoth.scss',
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: '[name].min.js',
@@ -14,8 +14,8 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /.css$/,
-                use: [MiniCssExtractPlugin.loader, "css-loader"],
+                test: /\.(sa|sc|c)ss$/,
+                use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader", "sass-loader"],
             },
         ],
     },

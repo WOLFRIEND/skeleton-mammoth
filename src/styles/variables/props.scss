@@ -1,0 +1,19 @@
+/* API props names.
+Names of the props types of the configuration object to be passed in the "data-sm-config".
+https://github.com/WOLFRIEND/skeleton-mammoth#props
+--------------------------------------------------------------------------------*/
+/* Props name: animation */
+$--sm-props-animation-name: "animation";
+$--sm-props-animation-type-none: "none";
+$--sm-props-animation-type-wave: "wave";
+$--sm-props-animation-type-wave-reverse: "wave-reverse";
+$--sm-props-animation-type-pulse: "pulse";
+
+/* Props name: theme */
+$--sm-props-theme-name: "theme";
+$--sm-props-theme-type-light: "light";
+$--sm-props-theme-type-dark: "dark";
+
+/* Props name: opacity */
+$--sm-props-opacity-name: "opacity";
+$--sm-props-opacities-types: 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1;

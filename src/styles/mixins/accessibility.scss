@@ -1,0 +1,30 @@
+@import "../variables/colors";
+@import "../variables/animations";
+
+@mixin mixin-apply-accessibility-reduced-motion() {
+  @media (prefers-reduced-motion) {
+    .sm-item-primary,
+    .sm-item-secondary {
+      animation: $--sm-animation-none;
+    }
+
+    .sm-item-primary {
+      background: rgba($--sm-color-light-primary);
+    }
+
+    .sm-item-secondary {
+      background: rgba($--sm-color-light-secondary);
+    }
+
+    /* Dark theme related styles. */
+    @media (prefers-color-scheme: dark) {
+      .sm-item-primary {
+        background: rgba($--sm-color-dark-primary);
+      }
+
+      .sm-item-secondary {
+        background: rgba($--sm-color-dark-secondary);
+      }
+    }
+  }
+}
