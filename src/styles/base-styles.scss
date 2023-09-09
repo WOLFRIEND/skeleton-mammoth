@@ -28,7 +28,7 @@ Applied by default and not related to any of the color scheme or setting.
       visibility: hidden;
     }
 
-    :empty:after {
+    &:empty:after {
       content: "\00a0";
     }
   }
