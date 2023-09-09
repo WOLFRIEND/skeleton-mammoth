@@ -68,11 +68,11 @@ Using jsDelivr CDN:
 
 <u>Specific version:</u>
 ```html
-<script src="https://cdn.jsdelivr.net/npm/skeleton-mammoth@2.1.0/dist/skeleton-mammoth.min.css"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/skeleton-mammoth@2.1.0/dist/skeleton-mammoth.min.css" />
 ```
 <u>Latest version:</u>
 ```html
-<script src="https://cdn.jsdelivr.net/npm/skeleton-mammoth/dist/skeleton-mammoth.min.css"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/skeleton-mammoth/dist/skeleton-mammoth.min.css" />
 ```
 
 ### Usage.
