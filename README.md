@@ -13,7 +13,7 @@
     - [Import the library.](#1-import-the-library)
     - [Set the parent class.](#2-set-the-parent-class-)
     - [Set child classes.](#3-set-child-classes-)
-    - [(Optional) Set the configuration object.](#4-optional-set-the-configuration-object)
+    - [Set the configuration object (optional).](#4-set-the-configuration-object-optional)
   - [Advanced Usage.](#advanced-usage)
     - [Overriding styles with global variables.](#overriding-styles-with-global-variables)
 - [Examples.](#examples)
