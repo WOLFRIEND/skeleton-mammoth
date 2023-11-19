@@ -4,28 +4,31 @@ https://github.com/WOLFRIEND/skeleton-mammoth#overriding-styles-with-global-vari
 --------------------------------------------------------------------------------*/
 :root {
   /* Animations values. */
-  --sm-animation-duration: 1.5s;
+  --sm-animation-duration: 2s;
   --sm-animation-timing-function: linear;
+  --sm-animation-delay: 0.2s;
   --sm-animation-iteration-count: infinite;
 
   /* Animations. */
   --sm-animation-none: none;
-  --sm-animation-wave: --sm--animation-wave var(--sm-animation-duration) var(--sm-animation-timing-function)
-    var(--sm-animation-iteration-count);
-  --sm-animation-wave-reverse: --sm--animation-wave-reverse var(--sm-animation-duration)
-    var(--sm-animation-timing-function) var(--sm-animation-iteration-count);
-  --sm-animation-pulse: --sm--animation-pulse var(--sm-animation-duration) var(--sm-animation-timing-function)
-    var(--sm-animation-iteration-count);
+  --sm-animation-wave: --sm-animation-wave var(--sm-animation-duration) var(--sm-animation-timing-function)
+    var(--sm-animation-delay) var(--sm-animation-iteration-count);
+  --sm-animation-wave-reverse: --sm-animation-wave-reverse var(--sm-animation-duration)
+    var(--sm-animation-timing-function) var(--sm-animation-delay) var(--sm-animation-iteration-count);
+  --sm-animation-pulse: --sm-animation-pulse var(--sm-animation-duration) var(--sm-animation-timing-function)
+    var(--sm-animation-delay) var(--sm-animation-iteration-count);
 }
 
 /* Animations values. */
 $--sm-animation-duration: var(--sm-animation-duration);
 $--sm-animation-timing-function: var(--sm-animation-timing-function);
 $--sm-animation-iteration-count: var(--sm-animation-iteration-count);
-$--sm-animation-wave-background-position-x: -200%;
-$--sm-animation-wave-reverse-background-position-x: 200%;
+$--sm-animation-wave-transform-translate-x-0: -100%;
+$--sm-animation-wave-transform-translate-x-100: 100%;
+$--sm-animation-wave-reverse-transform-translate-x-0: 100%;
+$--sm-animation-wave-reverse-transform-translate-x-100: -100%;
 $--sm-animation-pulse-percentage-0: 1;
-$--sm-animation-pulse-percentage-50: 0.6;
+$--sm-animation-pulse-percentage-50: 0.5;
 $--sm-animation-pulse-percentage-100: 1;
 
 /* Animations. */
