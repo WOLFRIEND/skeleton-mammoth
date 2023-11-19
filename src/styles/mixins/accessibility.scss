@@ -1,29 +1,43 @@
 @import "../variables/colors";
 @import "../variables/animations";
 
+/* Accessibility.
+Disable animations if a user's device settings are set to reduced motion.
+https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion
+--------------------------------------------------------------------------------*/
 @mixin mixin-apply-accessibility-reduced-motion() {
   @media (prefers-reduced-motion) {
     .sm-item-primary,
     .sm-item-secondary {
-      animation: $--sm-animation-none;
+      &:before {
+        animation: $--sm-animation-none;
+      }
     }
 
     .sm-item-primary {
-      background: rgba($--sm-color-light-primary);
+      &:before {
+        background: rgba($--sm-color-light-primary);
+      }
     }
 
     .sm-item-secondary {
-      background: rgba($--sm-color-light-secondary);
+      &:before {
+        background: rgba($--sm-color-light-secondary);
+      }
     }
 
     /* Dark theme related styles. */
     @media (prefers-color-scheme: dark) {
       .sm-item-primary {
-        background: rgba($--sm-color-dark-primary);
+        &:before {
+          background: rgba($--sm-color-dark-primary);
+        }
       }
 
       .sm-item-secondary {
-        background: rgba($--sm-color-dark-secondary);
+        &:before {
+          background: rgba($--sm-color-dark-secondary);
+        }
       }
     }
   }

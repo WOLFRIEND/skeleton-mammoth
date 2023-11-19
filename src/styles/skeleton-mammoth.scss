@@ -149,6 +149,9 @@ with the class ".sm-loading" as an attribute: "data-sm-config".
 /* { opacity: "0-1"}. */
 @each $opacity in $--sm-props-opacities-types {
   .sm-loading[data-sm-config*='"#{$--sm-props-opacity-name}":"#{$opacity}"'] {
-    opacity: $opacity;
+    .sm-item-primary,
+    .sm-item-secondary {
+      opacity: $opacity;
+    }
   }
 }
