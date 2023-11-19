@@ -1,19 +1,27 @@
 @import "variables/animations";
 
 /* Animations related styles. */
-@keyframes --sm--animation-wave {
-  to {
-    background-position-x: $--sm-animation-wave-background-position-x;
+@keyframes --sm-animation-wave {
+  0% {
+    transform: translateX($--sm-animation-wave-transform-translate-x-0);
+  }
+
+  100% {
+    transform: translateX($--sm-animation-wave-transform-translate-x-100);
   }
 }
 
-@keyframes --sm--animation-wave-reverse {
-  to {
-    background-position-x: $--sm-animation-wave-reverse-background-position-x;
+@keyframes --sm-animation-wave-reverse {
+  0% {
+    transform: translateX($--sm-animation-wave-reverse-transform-translate-x-0);
+  }
+
+  100% {
+    transform: translateX($--sm-animation-wave-reverse-transform-translate-x-100);
   }
 }
 
-@keyframes --sm--animation-pulse {
+@keyframes --sm-animation-pulse {
   0% {
     opacity: $--sm-animation-pulse-percentage-0;
   }

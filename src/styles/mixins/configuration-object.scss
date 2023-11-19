@@ -4,6 +4,9 @@
 @import "../variables/props";
 @import "accessibility";
 
+/* Animations mixin.
+https://github.com/WOLFRIEND/skeleton-mammoth/#4-set-the-configuration-object-optional.
+--------------------------------------------------------------------------------*/
 @mixin mixin-apply-configuration-object-animation-and-theme($animation: null, $theme: null) {
   @if $animation == $--sm-props-animation-type-wave and $theme == $--sm-props-theme-type-light {
     .sm-item-primary {
