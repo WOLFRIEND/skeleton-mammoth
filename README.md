@@ -268,6 +268,7 @@ API reference docs for the Skeleton Mammoth library. Learn about the props, CSS,
 | animation | `"none"` \| `"wave"` \| `"wave-reverse"` \| `"pulse"`                                                             |    `"wave"`     | Skeleton animation mode.      |
 | theme     | `"light"` \| `"dark"`                                                                                             |   `"light"`   | Color scheme of the skeleton. |
 | opacity   | `"0"` \| `"0.1"` \| `"0.2"` \| `"0.3"` \| `"0.4"` \| `"0.5"` \| `"0.6"` \| `"0.7"` \| `"0.8"` \| `"0.9"` \| `"1"` |     `"1"`     | Opacity of the skeleton.      |
+| borderRadius   | `"1"` \| `"2"` \| `"3"` \| `"4"` \| ... \| `"29"` \| `"30"` \| `"31"` \| `"32"`                          | `"0"`       | border radius of the skeleton in px.      |
 
 ### CSS.
 > See the [Overriding styles with global variables](#overriding-styles-with-global-variables)
