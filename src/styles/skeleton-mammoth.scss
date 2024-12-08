@@ -155,3 +155,13 @@ with the class ".sm-loading" as an attribute: "data-sm-config".
     }
   }
 }
+
+/* { border-radius: "0-32px"}. */
+@each $border-radius in $--sm-props-border-radius-types {
+  .sm-loading[data-sm-config*='"#{$--sm-props-border-radius-name}":"#{$border-radius}"'] {
+    .sm-item-primary,
+    .sm-item-secondary {
+      border-radius: #{$border-radius}px;
+    }
+  }
+}
