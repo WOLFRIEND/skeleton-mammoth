@@ -1,6 +1,6 @@
 {
   "name": "skeleton-mammoth",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "Skeleton Mammoth - a powerful CSS library designed to enhance user experience by displaying UI skeleton loaders, also known as placeholders.",
   "scripts": {
     "build": "webpack",
@@ -12,6 +12,8 @@
   },
   "keywords": [
     "CSS",
+    "SCSS",
+    "SASS",
     "JavaScript",
     "Loader",
     "Mammoth",
@@ -27,15 +29,15 @@
   },
   "homepage": "https://github.com/WOLFRIEND/skeleton-mammoth#readme",
   "devDependencies": {
-    "css-loader": "^6.8.1",
-    "css-minimizer-webpack-plugin": "^5.0.1",
-    "mini-css-extract-plugin": "^2.7.6",
-    "prettier": "^3.0.0",
+    "css-loader": "^7.1.2",
+    "css-minimizer-webpack-plugin": "^7.0.0",
+    "mini-css-extract-plugin": "^2.9.2",
+    "prettier": "^3.4.2",
     "remove-files-webpack-plugin": "^1.5.0",
-    "sass": "^1.64.1",
-    "sass-loader": "^13.3.2",
-    "postcss-loader": "^7.3.3",
-    "webpack": "^5.88.1",
+    "sass": "^1.82.0",
+    "sass-loader": "^16.0.4",
+    "postcss-loader": "^8.1.1",
+    "webpack": "^5.97.1",
     "webpack-cli": "^5.1.4"
   }
 }
