@@ -1,0 +1,24 @@
+@import "variables/props";
+
+/* Configuration: appearance.
+Each of these props sets a single property, so they do not intersect with other props.
+--------------------------------------------------------------------------------*/
+/* { opacity: "0-1" }. */
+@each $opacity in $--sm-props-opacities-types {
+  .sm-loading[data-sm-config*='"#{$--sm-props-opacity-name}":"#{$opacity}"'] {
+    .sm-item-primary,
+    .sm-item-secondary {
+      opacity: $opacity;
+    }
+  }
+}
+
+/* { borderRadius: "0-32" } (in pixels). */
+@each $border-radius in $--sm-props-border-radius-types {
+  .sm-loading[data-sm-config*='"#{$--sm-props-border-radius-name}":"#{$border-radius}"'] {
+    .sm-item-primary,
+    .sm-item-secondary {
+      border-radius: #{$border-radius}px;
+    }
+  }
+}

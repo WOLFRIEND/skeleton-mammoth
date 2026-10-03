@@ -1,0 +1,68 @@
+@import "variables/colors";
+@import "variables/props";
+
+/* Theme.
+The theme only selects which colors are used. It writes the private "--_sm-color" and "--_sm-color-animation"
+custom properties of the skeleton elements and never touches the animation, so it does not intersect with it.
+Priority (lowest to highest): light (default) -> system dark scheme -> "theme" of the configuration object.
+https://github.com/WOLFRIEND/skeleton-mammoth/#4-set-the-configuration-object-optional
+--------------------------------------------------------------------------------*/
+@mixin mixin-sm-theme($primary, $secondary, $animationPrimary, $animationSecondary) {
+  .sm-item-primary {
+    --_sm-color: #{$primary};
+    --_sm-color-animation: #{$animationPrimary};
+  }
+
+  .sm-item-secondary {
+    --_sm-color: #{$secondary};
+    --_sm-color-animation: #{$animationSecondary};
+  }
+}
+
+/* Light theme.
+The library's default color scheme.
+--------------------------------------------------------------------------------*/
+.sm-loading {
+  @include mixin-sm-theme(
+    $--sm-color-light-primary,
+    $--sm-color-light-secondary,
+    $--sm-color-light-animation-primary,
+    $--sm-color-light-animation-secondary
+  );
+}
+
+/* Dark theme.
+Styles to apply if a user's device settings are set to use dark color scheme.
+https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme
+--------------------------------------------------------------------------------*/
+@media (prefers-color-scheme: dark) {
+  .sm-loading {
+    @include mixin-sm-theme(
+      $--sm-color-dark-primary,
+      $--sm-color-dark-secondary,
+      $--sm-color-dark-animation-primary,
+      $--sm-color-dark-animation-secondary
+    );
+  }
+}
+
+/* Configuration: { theme: "light" | "dark" }.
+Has a higher specificity than the rules above, so it always overrides the system color scheme.
+--------------------------------------------------------------------------------*/
+.sm-loading[data-sm-config*='"#{$--sm-props-theme-name}":"#{$--sm-props-theme-type-light}"'] {
+  @include mixin-sm-theme(
+    $--sm-color-light-primary,
+    $--sm-color-light-secondary,
+    $--sm-color-light-animation-primary,
+    $--sm-color-light-animation-secondary
+  );
+}
+
+.sm-loading[data-sm-config*='"#{$--sm-props-theme-name}":"#{$--sm-props-theme-type-dark}"'] {
+  @include mixin-sm-theme(
+    $--sm-color-dark-primary,
+    $--sm-color-dark-secondary,
+    $--sm-color-dark-animation-primary,
+    $--sm-color-dark-animation-secondary
+  );
+}

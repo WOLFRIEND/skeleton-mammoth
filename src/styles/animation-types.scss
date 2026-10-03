@@ -1,0 +1,71 @@
+@import "variables/animations";
+@import "variables/props";
+
+/* Animation.
+The animation only selects how the skeleton is drawn. The colors are taken from the private
+"--_sm-color" and "--_sm-color-animation" custom properties of the element (see "theme.scss"), so the animation
+does not intersect with the theme and there is no need to describe every "animation × theme" pair.
+--------------------------------------------------------------------------------*/
+
+/* The "wave" animation.
+The library's default animation.
+Since the "animation-delay" property is used for animation, it is necessary to set the starting position.
+--------------------------------------------------------------------------------*/
+.sm-loading {
+  .sm-item-primary,
+  .sm-item-secondary {
+    background: rgba(var(--_sm-color));
+
+    &:before {
+      animation: $--sm-animation-wave;
+      background: linear-gradient(90deg, transparent 40%, var(--_sm-color-animation) 50%, transparent 60%);
+      transform: translateX(-100%);
+    }
+  }
+}
+
+/* Configuration: { animation: "wave-reverse" | "pulse" | "none" }.
+":where()" keeps the specificity of the base selector, so the order in the file decides.
+The "wave" is the default one and does not need a separate rule.
+--------------------------------------------------------------------------------*/
+@mixin mixin-sm-animation($type, $animation, $itemBackground, $pseudoBackground, $pseudoTransform) {
+  .sm-loading:where([data-sm-config*='"#{$--sm-props-animation-name}":"#{$type}"']) {
+    .sm-item-primary,
+    .sm-item-secondary {
+      background: $itemBackground;
+
+      &:before {
+        animation: $animation;
+        background: $pseudoBackground;
+        transform: $pseudoTransform;
+      }
+    }
+  }
+}
+
+@include mixin-sm-animation(
+  $--sm-props-animation-type-wave-reverse,
+  $--sm-animation-wave-reverse,
+  rgba(var(--_sm-color)),
+  linear-gradient(90deg, transparent 40%, var(--_sm-color-animation) 50%, transparent 60%),
+  translateX(100%)
+);
+
+/* We don't need the background color of the element for the "pulse" animation.
+Because the animation is applied to the ":before" pseudo-element, and changes its opacity.
+--------------------------------------------------------------------------------*/
+@include mixin-sm-animation(
+  $--sm-props-animation-type-pulse,
+  $--sm-animation-pulse,
+  unset,
+  rgba(var(--_sm-color)),
+  unset
+);
+
+@include mixin-sm-animation(
+  $--sm-props-animation-type-none,
+  $--sm-animation-none,
+  rgba(var(--_sm-color)),
+  rgba(var(--_sm-color)),
+  unset
+);
