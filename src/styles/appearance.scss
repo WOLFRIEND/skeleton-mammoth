@@ -1,24 +1,21 @@
-@import "variables/props";
+@use "variables/props" as *;
 
 /* Configuration: appearance.
 Each of these props sets a single property, so they do not intersect with other props.
+":is()" lets us write the attribute selector only once per rule, and it has the same specificity
+as the longer "selector .a, selector .b" form.
 --------------------------------------------------------------------------------*/
 /* { opacity: "0-1" }. */
-@each $opacity in $--sm-props-opacities-types {
-  .sm-loading[data-sm-config*='"#{$--sm-props-opacity-name}":"#{$opacity}"'] {
-    .sm-item-primary,
-    .sm-item-secondary {
-      opacity: $opacity;
-    }
+@each $opacity in $sm-props-opacities-types {
+  .sm-loading[data-sm-config*='"#{$sm-props-opacity-name}":"#{$opacity}"'] :is(.sm-item-primary, .sm-item-secondary) {
+    opacity: $opacity;
   }
 }
 
 /* { borderRadius: "0-32" } (in pixels). */
-@each $border-radius in $--sm-props-border-radius-types {
-  .sm-loading[data-sm-config*='"#{$--sm-props-border-radius-name}":"#{$border-radius}"'] {
-    .sm-item-primary,
-    .sm-item-secondary {
-      border-radius: #{$border-radius}px;
-    }
+@each $border-radius in $sm-props-border-radius-types {
+  .sm-loading[data-sm-config*='"#{$sm-props-border-radius-name}":"#{$border-radius}"']
+    :is(.sm-item-primary, .sm-item-secondary) {
+    border-radius: #{$border-radius}px;
   }
 }
