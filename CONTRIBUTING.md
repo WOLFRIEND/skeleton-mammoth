@@ -15,6 +15,13 @@ To contribute, please follow these guidelines:
 10. Be responsive to any feedback or review that may arise during the pull request process.
 11. Once your changes are approved, they will be merged into the main branch and become part of the library.
 
+## Development setup
+1. Install Node.js 20.19 or later and run `npm install`.
+2. Edit the SCSS files in `src/styles`.
+3. Run `npm run build` to compile them to `dist/skeleton-mammoth.min.css`.
+   The compiled file is committed to the repository, so include it in your pull request.
+4. Run `npm run format-styles` to format the SCSS files.
+
 Please note the following:
 By contributing to this repository, you agree that your contributions will be licensed under the MIT License.
 Ensure that you have the necessary rights and permissions to make the contribution.
