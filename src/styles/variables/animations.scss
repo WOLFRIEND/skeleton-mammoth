@@ -18,21 +18,3 @@ https://github.com/WOLFRIEND/skeleton-mammoth#overriding-styles-with-global-vari
   --sm-animation-pulse: --sm-animation-pulse var(--sm-animation-duration) var(--sm-animation-timing-function)
     var(--sm-animation-delay) var(--sm-animation-iteration-count);
 }
-
-/* Animations values. */
-$--sm-animation-duration: var(--sm-animation-duration);
-$--sm-animation-timing-function: var(--sm-animation-timing-function);
-$--sm-animation-iteration-count: var(--sm-animation-iteration-count);
-$--sm-animation-wave-transform-translate-x-0: -100%;
-$--sm-animation-wave-transform-translate-x-100: 100%;
-$--sm-animation-wave-reverse-transform-translate-x-0: 100%;
-$--sm-animation-wave-reverse-transform-translate-x-100: -100%;
-$--sm-animation-pulse-percentage-0: 1;
-$--sm-animation-pulse-percentage-50: 0.5;
-$--sm-animation-pulse-percentage-100: 1;
-
-/* Animations. */
-$--sm-animation-none: var(--sm-animation-none);
-$--sm-animation-wave: var(--sm-animation-wave);
-$--sm-animation-wave-reverse: var(--sm-animation-wave-reverse);
-$--sm-animation-pulse: var(--sm-animation-pulse);

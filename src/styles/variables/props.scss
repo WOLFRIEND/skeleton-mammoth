@@ -3,22 +3,24 @@ Names of the props types of the configuration object to be passed in the "data-s
 https://github.com/WOLFRIEND/skeleton-mammoth#props
 --------------------------------------------------------------------------------*/
 /* Props name: animation */
-$--sm-props-animation-name: "animation";
-$--sm-props-animation-type-none: "none";
-$--sm-props-animation-type-wave: "wave";
-$--sm-props-animation-type-wave-reverse: "wave-reverse";
-$--sm-props-animation-type-pulse: "pulse";
+$sm-props-animation-name: "animation";
+$sm-props-animation-type-none: "none";
+/* The default animation. It does not have its own rule, because it is the base one,
+but it is a valid value of the prop and is listed here to keep the whole API in one place. */
+$sm-props-animation-type-wave: "wave";
+$sm-props-animation-type-wave-reverse: "wave-reverse";
+$sm-props-animation-type-pulse: "pulse";
 
 /* Props name: theme */
-$--sm-props-theme-name: "theme";
-$--sm-props-theme-type-light: "light";
-$--sm-props-theme-type-dark: "dark";
+$sm-props-theme-name: "theme";
+$sm-props-theme-type-light: "light";
+$sm-props-theme-type-dark: "dark";
 
 /* Props name: opacity */
-$--sm-props-opacity-name: "opacity";
-$--sm-props-opacities-types: 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1;
+$sm-props-opacity-name: "opacity";
+$sm-props-opacities-types: 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1;
 
 /* Props name: border-radius */
-$--sm-props-border-radius-name: "borderRadius";
-$--sm-props-border-radius-types: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23,
-  24, 25, 26, 27, 28, 29, 30, 31, 32;
+$sm-props-border-radius-name: "borderRadius";
+$sm-props-border-radius-types: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24,
+  25, 26, 27, 28, 29, 30, 31, 32;

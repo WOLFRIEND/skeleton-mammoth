@@ -1,5 +1,4 @@
-@import "variables/colors";
-@import "variables/props";
+@use "variables/props" as *;
 
 /* Theme.
 The theme only selects which colors are used. It writes the private "--_sm-color" and "--_sm-color-animation"
@@ -24,10 +23,10 @@ The library's default color scheme.
 --------------------------------------------------------------------------------*/
 .sm-loading {
   @include mixin-sm-theme(
-    $--sm-color-light-primary,
-    $--sm-color-light-secondary,
-    $--sm-color-light-animation-primary,
-    $--sm-color-light-animation-secondary
+    var(--sm-color-light-primary),
+    var(--sm-color-light-secondary),
+    var(--sm-color-light-animation-primary),
+    var(--sm-color-light-animation-secondary)
   );
 }
 
@@ -38,10 +37,10 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme
 @media (prefers-color-scheme: dark) {
   .sm-loading {
     @include mixin-sm-theme(
-      $--sm-color-dark-primary,
-      $--sm-color-dark-secondary,
-      $--sm-color-dark-animation-primary,
-      $--sm-color-dark-animation-secondary
+      var(--sm-color-dark-primary),
+      var(--sm-color-dark-secondary),
+      var(--sm-color-dark-animation-primary),
+      var(--sm-color-dark-animation-secondary)
     );
   }
 }
@@ -49,20 +48,20 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme
 /* Configuration: { theme: "light" | "dark" }.
 Has a higher specificity than the rules above, so it always overrides the system color scheme.
 --------------------------------------------------------------------------------*/
-.sm-loading[data-sm-config*='"#{$--sm-props-theme-name}":"#{$--sm-props-theme-type-light}"'] {
+.sm-loading[data-sm-config*='"#{$sm-props-theme-name}":"#{$sm-props-theme-type-light}"'] {
   @include mixin-sm-theme(
-    $--sm-color-light-primary,
-    $--sm-color-light-secondary,
-    $--sm-color-light-animation-primary,
-    $--sm-color-light-animation-secondary
+    var(--sm-color-light-primary),
+    var(--sm-color-light-secondary),
+    var(--sm-color-light-animation-primary),
+    var(--sm-color-light-animation-secondary)
   );
 }
 
-.sm-loading[data-sm-config*='"#{$--sm-props-theme-name}":"#{$--sm-props-theme-type-dark}"'] {
+.sm-loading[data-sm-config*='"#{$sm-props-theme-name}":"#{$sm-props-theme-type-dark}"'] {
   @include mixin-sm-theme(
-    $--sm-color-dark-primary,
-    $--sm-color-dark-secondary,
-    $--sm-color-dark-animation-primary,
-    $--sm-color-dark-animation-secondary
+    var(--sm-color-dark-primary),
+    var(--sm-color-dark-secondary),
+    var(--sm-color-dark-animation-primary),
+    var(--sm-color-dark-animation-secondary)
   );
 }

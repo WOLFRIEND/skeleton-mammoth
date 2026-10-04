@@ -1,5 +1,3 @@
-@import "variables/animations";
-
 /* Accessibility.
 Disable animations if a user's device settings are set to reduced motion.
 https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion
@@ -10,7 +8,7 @@ Must come after the animation rules, because it has the same specificity and ove
     .sm-item-primary,
     .sm-item-secondary {
       &:before {
-        animation: $--sm-animation-none;
+        animation: var(--sm-animation-none);
         background: rgba(var(--_sm-color));
       }
     }
