@@ -3,24 +3,31 @@
   "version": "3.1.0",
   "description": "Skeleton Mammoth - a powerful CSS library designed to enhance user experience by displaying UI skeleton loaders, also known as placeholders.",
   "scripts": {
-    "build": "webpack",
+    "build": "sass --no-source-map --style=compressed --no-charset --no-error-css src/styles/skeleton-mammoth.scss dist/skeleton-mammoth.min.css",
+    "prepare": "git config core.hooksPath .githooks",
+    "prepublishOnly": "npm run build",
     "format-styles": "prettier --write \"src/**/*.scss\""
   },
+  "files": [
+    "dist/skeleton-mammoth.min.css"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/WOLFRIEND/skeleton-mammoth.git"
   },
   "keywords": [
-    "CSS",
-    "SCSS",
-    "SASS",
-    "JavaScript",
-    "Loader",
-    "Mammoth",
-    "Placeholder",
-    "Skeleton",
-    "UI",
-    "Design"
+    "css",
+    "scss",
+    "skeleton",
+    "skeleton-loader",
+    "loader",
+    "loading",
+    "placeholder",
+    "animation",
+    "shimmer",
+    "pulse",
+    "ui",
+    "mammoth"
   ],
   "author": "Oleksandr Tkachenko",
   "license": "MIT",
@@ -29,15 +36,7 @@
   },
   "homepage": "https://github.com/WOLFRIEND/skeleton-mammoth#readme",
   "devDependencies": {
-    "css-loader": "^7.1.2",
-    "css-minimizer-webpack-plugin": "^7.0.0",
-    "mini-css-extract-plugin": "^2.9.2",
-    "prettier": "^3.4.2",
-    "remove-files-webpack-plugin": "^1.5.0",
-    "sass": "^1.82.0",
-    "sass-loader": "^16.0.4",
-    "postcss-loader": "^8.1.1",
-    "webpack": "^5.97.1",
-    "webpack-cli": "^5.1.4"
+    "prettier": "^3.9.9",
+    "sass": "^1.105.1"
   }
 }

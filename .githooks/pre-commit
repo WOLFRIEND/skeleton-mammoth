@@ -1,0 +1,5 @@
+#!/bin/sh
+# Rebuild "dist" when the SCSS sources are a part of the commit, so the compiled file is never out of date.
+if git diff --cached --name-only | grep -q '^src/styles/'; then
+  npm run build --silent && git add dist/skeleton-mammoth.min.css
+fi

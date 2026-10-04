@@ -14,8 +14,7 @@ as the longer "selector .a, selector .b" form.
 
 /* { borderRadius: "0-32" } (in pixels). */
 @each $border-radius in $sm-props-border-radius-types {
-  .sm-loading[data-sm-config*='"#{$sm-props-border-radius-name}":"#{$border-radius}"']
-    :is(.sm-item-primary, .sm-item-secondary) {
+  .sm-loading[data-sm-config*='"#{$sm-props-border-radius-name}":"#{$border-radius}"'] :is(.sm-item-primary, .sm-item-secondary) {
     border-radius: #{$border-radius}px;
   }
 }
