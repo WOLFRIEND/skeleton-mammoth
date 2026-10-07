@@ -9,7 +9,7 @@ Must come after the animation rules, because it has the same specificity and ove
     .sm-item-secondary {
       &:before {
         animation: var(--sm-animation-none);
-        background: rgba(var(--_sm-color));
+        background: var(--_sm-color);
       }
     }
   }

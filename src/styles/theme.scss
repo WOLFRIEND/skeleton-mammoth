@@ -3,65 +3,38 @@
 /* Theme.
 The theme only selects which colors are used. It writes the private "--_sm-color" and "--_sm-color-animation"
 custom properties of the skeleton elements and never touches the animation, so it does not intersect with it.
-Priority (lowest to highest): light (default) -> system dark scheme -> "theme" of the configuration object.
+
+The colors are chosen by the "light-dark()" function, which depends on the "color-scheme" of the skeleton element:
+- by default it is "light dark", so the skeleton follows the system color scheme;
+- the "theme" prop of the configuration object sets the "color-scheme" of the skeleton elements:
+  "light" and "dark" force the scheme, "inherit" takes the "color-scheme" of the nearest parent element that sets it.
+https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/light-dark
 https://github.com/WOLFRIEND/skeleton-mammoth/#4-set-the-configuration-object-optional
 --------------------------------------------------------------------------------*/
-@mixin mixin-sm-theme($primary, $secondary, $animationPrimary, $animationSecondary) {
+.sm-loading {
+  .sm-item-primary,
+  .sm-item-secondary {
+    color-scheme: light dark;
+  }
+
   .sm-item-primary {
-    --_sm-color: #{$primary};
-    --_sm-color-animation: #{$animationPrimary};
+    --_sm-color: light-dark(rgba(var(--sm-color-light-primary)), rgba(var(--sm-color-dark-primary)));
+    --_sm-color-animation: light-dark(var(--sm-color-light-animation-primary), var(--sm-color-dark-animation-primary));
   }
 
   .sm-item-secondary {
-    --_sm-color: #{$secondary};
-    --_sm-color-animation: #{$animationSecondary};
+    --_sm-color: light-dark(rgba(var(--sm-color-light-secondary)), rgba(var(--sm-color-dark-secondary)));
+    --_sm-color-animation: light-dark(var(--sm-color-light-animation-secondary), var(--sm-color-dark-animation-secondary));
   }
 }
 
-/* Light theme.
-The library's default color scheme.
+/* Configuration: { theme: "light" | "dark" | "inherit" }.
+Has a higher specificity than the rules above, so it always overrides the default "color-scheme".
+The values of the prop are the same as the values of the "color-scheme" property ("inherit" is the CSS-wide keyword,
+which takes the value of the parent element).
 --------------------------------------------------------------------------------*/
-.sm-loading {
-  @include mixin-sm-theme(
-    var(--sm-color-light-primary),
-    var(--sm-color-light-secondary),
-    var(--sm-color-light-animation-primary),
-    var(--sm-color-light-animation-secondary)
-  );
-}
-
-/* Dark theme.
-Styles to apply if a user's device settings are set to use dark color scheme.
-https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme
---------------------------------------------------------------------------------*/
-@media (prefers-color-scheme: dark) {
-  .sm-loading {
-    @include mixin-sm-theme(
-      var(--sm-color-dark-primary),
-      var(--sm-color-dark-secondary),
-      var(--sm-color-dark-animation-primary),
-      var(--sm-color-dark-animation-secondary)
-    );
+@each $theme in $sm-props-theme-type-light, $sm-props-theme-type-dark, $sm-props-theme-type-inherit {
+  .sm-loading[data-sm-config*='"#{$sm-props-theme-name}":"#{$theme}"'] :is(.sm-item-primary, .sm-item-secondary) {
+    color-scheme: #{$theme};
   }
-}
-
-/* Configuration: { theme: "light" | "dark" }.
-Has a higher specificity than the rules above, so it always overrides the system color scheme.
---------------------------------------------------------------------------------*/
-.sm-loading[data-sm-config*='"#{$sm-props-theme-name}":"#{$sm-props-theme-type-light}"'] {
-  @include mixin-sm-theme(
-    var(--sm-color-light-primary),
-    var(--sm-color-light-secondary),
-    var(--sm-color-light-animation-primary),
-    var(--sm-color-light-animation-secondary)
-  );
-}
-
-.sm-loading[data-sm-config*='"#{$sm-props-theme-name}":"#{$sm-props-theme-type-dark}"'] {
-  @include mixin-sm-theme(
-    var(--sm-color-dark-primary),
-    var(--sm-color-dark-secondary),
-    var(--sm-color-dark-animation-primary),
-    var(--sm-color-dark-animation-secondary)
-  );
 }

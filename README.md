@@ -9,6 +9,7 @@
   - [Advantages.](#advantages)
 - [Getting Started.](#getting-started)
   - [Installing.](#installing)
+  - [Browser support.](#browser-support)
   - [Usage.](#usage)
     - [Import the library.](#1-import-the-library)
     - [Set the parent class.](#2-set-the-parent-class-)
@@ -74,6 +75,11 @@ Using jsDelivr CDN:
 ```html
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/skeleton-mammoth/dist/skeleton-mammoth.min.css" />
 ```
+
+### Browser support.
+The library uses modern CSS features (such as `light-dark()`, `color-mix()` and `translate`),
+so it requires the following minimum browser versions: Chrome 123, Edge 123, Firefox 120, Safari 17.5.
+In older browsers the skeleton is not displayed.
 
 ### Usage.
 #### 1. Import the library:
@@ -266,7 +272,7 @@ API reference docs for the Skeleton Mammoth library. Learn about the props, CSS,
 | Name      | Type                                                                                                              | Default value | Description                              |
 |-----------|-------------------------------------------------------------------------------------------------------------------|:-------------:|------------------------------------------|
 | animation | `"none"` \| `"wave"` \| `"wave-reverse"` \| `"pulse"`                                                             |    `"wave"`     | Skeleton animation mode.                 |
-| theme     | `"light"` \| `"dark"`                                                                                             |   `"light"`   | Color scheme of the skeleton.            |
+| theme     | `"light"` \| `"dark"` \| `"inherit"`                                                                              |   not set     | Color scheme of the skeleton. It is applied through the [color-scheme](https://developer.mozilla.org/en-US/docs/Web/CSS/color-scheme) CSS property of the skeleton elements. When the prop is not set, the skeleton follows the system color scheme (`color-scheme: light dark`). `"light"` and `"dark"` force the scheme. `"inherit"` takes the `color-scheme` of the nearest parent element that sets it (for example `html` or `body`), so the skeleton matches the page; if no parent sets it, the scheme is light. |
 | opacity   | `"0"` \| `"0.1"` \| `"0.2"` \| `"0.3"` \| `"0.4"` \| `"0.5"` \| `"0.6"` \| `"0.7"` \| `"0.8"` \| `"0.9"` \| `"1"` |     `"1"`     | Opacity of the skeleton.                 |
 | borderRadius   | `"0"` \| `"1"` \| `"2"` \| `"3"` \| ... \| `"29"` \| `"30"` \| `"31"` \| `"32"`                                   | `"0"`       | Border radius of the skeleton in pixels. |
 
