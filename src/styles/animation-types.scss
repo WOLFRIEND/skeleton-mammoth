@@ -2,7 +2,7 @@
 
 /* Animation.
 The animation only selects how the skeleton is drawn. The colors are taken from the private
-"--_sm-color" and "--_sm-color-animation" custom properties of the element (see "theme.scss"), so the animation
+"--_sm-color" and "--_sm-color-animation" custom properties of the element, which are already colors (see "theme.scss"), so the animation
 does not intersect with the theme and there is no need to describe every "animation × theme" pair.
 --------------------------------------------------------------------------------*/
 
@@ -13,7 +13,7 @@ Since the "animation-delay" property is used for animation, it is necessary to s
 .sm-loading {
   .sm-item-primary,
   .sm-item-secondary {
-    background: rgba(var(--_sm-color));
+    background: var(--_sm-color);
 
     &:before {
       animation: var(--sm-animation-wave);
@@ -46,7 +46,7 @@ these rules override the "wave" ones, and the "prefers-reduced-motion" ones over
 
     &:before {
       animation: var(--sm-animation-pulse);
-      background: rgba(var(--_sm-color));
+      background: var(--_sm-color);
       translate: unset;
     }
   }
@@ -57,7 +57,7 @@ these rules override the "wave" ones, and the "prefers-reduced-motion" ones over
   .sm-item-secondary {
     &:before {
       animation: var(--sm-animation-none);
-      background: rgba(var(--_sm-color));
+      background: var(--_sm-color);
       translate: unset;
     }
   }
