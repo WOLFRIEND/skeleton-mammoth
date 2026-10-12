@@ -22,9 +22,6 @@ and the prop is used only for the elements that do not have their own.
   }
 }
 
-:where(
-  .sm-loading[data-sm-config*='"#{$sm-props-border-radius-name}":"#{$sm-props-border-radius-type-full}"']
-    :is(.sm-item-primary, .sm-item-secondary)
-) {
+:where(.sm-loading[data-sm-config*='"#{$sm-props-border-radius-name}":"#{$sm-props-border-radius-type-full}"'] :is(.sm-item-primary, .sm-item-secondary)) {
   border-radius: 9999px;
 }

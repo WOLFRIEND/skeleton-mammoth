@@ -20,10 +20,7 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion
 
 /* The state "to": the transitions of the loaded elements.
 ":where()" gives these rules zero specificity, so the own "transition" of the elements always takes precedence. */
-:where(
-  [data-sm-config*='"#{$sm-props-reveal-name}":"#{$sm-props-reveal-type-fade}"']
-    :is(.sm-item-primary, .sm-item-secondary):not(.sm-loading *)
-) {
+:where([data-sm-config*='"#{$sm-props-reveal-name}":"#{$sm-props-reveal-type-fade}"'] :is(.sm-item-primary, .sm-item-secondary):not(.sm-loading *)) {
   transition-property: color, background-color, border-color, border-radius, opacity;
   transition-duration: var(--sm-reveal-duration);
   transition-timing-function: var(--sm-reveal-timing-function);
@@ -34,10 +31,7 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion
 }
 
 @media (prefers-reduced-motion) {
-  :where(
-    [data-sm-config*='"#{$sm-props-reveal-name}":"#{$sm-props-reveal-type-fade}"']
-      :is(.sm-item-primary, .sm-item-secondary):not(.sm-loading *)
-  ) {
+  :where([data-sm-config*='"#{$sm-props-reveal-name}":"#{$sm-props-reveal-type-fade}"'] :is(.sm-item-primary, .sm-item-secondary):not(.sm-loading *)) {
     transition: none;
 
     > * {
