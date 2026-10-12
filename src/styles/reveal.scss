@@ -1,0 +1,47 @@
+@use "variables/props" as *;
+
+/* Reveal.
+Configuration: { reveal: "fade" }.
+When the loading is finished (the ".sm-loading" class is removed from the parent), the content, the text color, the border
+and the background color of the skeleton elements change smoothly with transitions, instead of being switched at once.
+A transition runs only if the element had the previous styles, so nothing is animated if the element has never been
+in the loading state (for example, if the data is already there on the first render).
+It requires the "data-sm-config" attribute and the "sm-item-*" classes to stay on the elements after the loading.
+The properties that change when the loading is finished are listed explicitly (not "all"), so the layout properties of
+the elements (such as width or margin) are never animated.
+Disabled by default and if a user's device settings are set to reduced motion.
+https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion
+--------------------------------------------------------------------------------*/
+
+/* The state "from": while loading, the content of the skeleton elements is transparent. */
+.sm-loading[data-sm-config*='"#{$sm-props-reveal-name}":"#{$sm-props-reveal-type-fade}"'] :is(.sm-item-primary, .sm-item-secondary) > * {
+  opacity: 0;
+}
+
+/* The state "to": the transitions of the loaded elements.
+":where()" gives these rules zero specificity, so the own "transition" of the elements always takes precedence. */
+:where(
+  [data-sm-config*='"#{$sm-props-reveal-name}":"#{$sm-props-reveal-type-fade}"']
+    :is(.sm-item-primary, .sm-item-secondary):not(.sm-loading *)
+) {
+  transition-property: color, background-color, border-color, border-radius, opacity;
+  transition-duration: var(--sm-reveal-duration);
+  transition-timing-function: var(--sm-reveal-timing-function);
+
+  > * {
+    transition: opacity var(--sm-reveal-duration) var(--sm-reveal-timing-function);
+  }
+}
+
+@media (prefers-reduced-motion) {
+  :where(
+    [data-sm-config*='"#{$sm-props-reveal-name}":"#{$sm-props-reveal-type-fade}"']
+      :is(.sm-item-primary, .sm-item-secondary):not(.sm-loading *)
+  ) {
+    transition: none;
+
+    > * {
+      transition: none;
+    }
+  }
+}
