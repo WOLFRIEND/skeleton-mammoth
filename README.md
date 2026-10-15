@@ -311,6 +311,8 @@ You can find all color variables in the source file:
 | --sm-color-dark-secondary            | `41, 41, 41, 1`                                                        | Background color of the secondary element (with the class `sm-item-secondary`) for the dark theme.                                                                                                        |
 | --sm-color-dark-animation-primary    | `color-mix( in srgb, #fff 2%, rgba(var(--sm-color-dark-primary)))`     | Animation color of the primary element (with the class `sm-item-primary`) for the dark theme.                                                                                                             |
 | --sm-color-dark-animation-secondary  | `color-mix( in srgb, #fff 2%, rgba(var(--sm-color-dark-secondary)))`   | Animation color of the secondary element (with the class `sm-item-secondary`) for the dark theme.                                                                                                         |
+| --sm-color-forced                    | `GrayText`                                                             | Background color of the skeleton elements in the high contrast mode (`forced-colors: active`). The system color adapts to the contrast theme of the user.                                                 |
+| --sm-color-forced-animation          | `CanvasText`                                                           | Animation color of the skeleton elements in the high contrast mode.                                                                                                                                       |
 
 #### Animations.
 You can find all animation variables in the source file:

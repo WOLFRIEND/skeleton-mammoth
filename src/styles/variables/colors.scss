@@ -14,4 +14,8 @@ https://github.com/WOLFRIEND/skeleton-mammoth#overriding-styles-with-global-vari
   --sm-color-dark-secondary: 41, 41, 41, 1;
   --sm-color-dark-animation-primary: color-mix(in srgb, #fff 2%, rgba(var(--sm-color-dark-primary)) 98%);
   --sm-color-dark-animation-secondary: color-mix(in srgb, #fff 2%, rgba(var(--sm-color-dark-secondary)) 98%);
+
+  /* High contrast (forced colors) colors. The system colors adapt to the contrast theme of the user. */
+  --sm-color-forced: GrayText;
+  --sm-color-forced-animation: CanvasText;
 }

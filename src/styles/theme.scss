@@ -38,3 +38,18 @@ which takes the value of the parent element).
     color-scheme: #{$theme};
   }
 }
+
+/* High contrast (forced colors).
+The browser replaces the colors of the page with the system ones, so the colors of the skeleton are lost: the skeleton becomes invisible,
+and the text that is hidden with the transparent color becomes visible. "forced-color-adjust: none" keeps our hiding of the text,
+and the skeleton gets the system colors, which are readable in any contrast theme of the user.
+They are the public variables, so they can be overridden.
+https://developer.mozilla.org/en-US/docs/Web/CSS/@media/forced-colors
+--------------------------------------------------------------------------------*/
+@media (forced-colors: active) {
+  .sm-loading :is(.sm-item-primary, .sm-item-secondary) {
+    forced-color-adjust: none;
+    --_sm-color: var(--sm-color-forced);
+    --_sm-color-animation: var(--sm-color-forced-animation);
+  }
+}
