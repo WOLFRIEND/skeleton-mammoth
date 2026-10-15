@@ -1,6 +1,6 @@
 {
   "name": "skeleton-mammoth",
-  "version": "3.1.0",
+  "version": "4.0.0",
   "description": "Skeleton Mammoth - a powerful CSS library designed to enhance user experience by displaying UI skeleton loaders, also known as placeholders.",
   "scripts": {
     "build": "sass --no-source-map --style=compressed --no-charset --no-error-css src/styles/skeleton-mammoth.scss dist/skeleton-mammoth.min.css",
