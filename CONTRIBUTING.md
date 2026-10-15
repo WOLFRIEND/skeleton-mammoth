@@ -22,6 +22,9 @@ To contribute, please follow these guidelines:
    The compiled file is committed to the repository, so include it in your pull request.
 4. Run `npm run format-styles` to format the SCSS files.
 
+The `npm install` command also enables the `pre-commit` git hook: when the SCSS files are in a commit, it rebuilds the compiled file and adds it to that commit.
+The demo of the library is in a [separate repository](https://github.com/WOLFRIEND/skeleton-mammoth-demo).
+
 Please note the following:
 By contributing to this repository, you agree that your contributions will be licensed under the MIT License.
 Ensure that you have the necessary rights and permissions to make the contribution.
