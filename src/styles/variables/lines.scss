@@ -1,0 +1,8 @@
+/* Root variables.
+Needed here to be able to override them after compilation:
+https://github.com/WOLFRIEND/skeleton-mammoth#overriding-styles-with-global-variables
+--------------------------------------------------------------------------------*/
+:root {
+  /* The empty space between the lines of the text skeleton. */
+  --sm-lines-gap: 0.4lh;
+}

@@ -15,6 +15,7 @@
     - [Set the parent class.](#2-set-the-parent-class-)
     - [Set child classes.](#3-set-child-classes-)
     - [Set the configuration object (optional).](#4-set-the-configuration-object-optional)
+    - [Text lines (optional).](#text-lines-optional)
   - [Advanced Usage.](#advanced-usage)
     - [Overriding styles with global variables.](#overriding-styles-with-global-variables)
 - [Examples.](#examples)
@@ -140,6 +141,21 @@ const config = JSON.stringify({
 ```
 > **Note:**
 > For a complete list of available configurations, see the API [Props](#props) section.
+
+#### Text lines (optional):
+
+To display the skeleton of a text as lines (one bar per line) instead of a solid block,
+set the `sm-item-lines-N` class (`N` is from `1` to `10`) along with `sm-item-primary` or `sm-item-secondary`.
+It sets the height of the element to `N` lines, so it works for an empty element while the data is loading:
+```html
+<p class="card__description sm-item-secondary sm-item-lines-3">{description}</p>
+```
+> **Note:**
+> - The element should be a block (not an inline element).
+> - The radius of the bars is the `borderRadius` prop of the configuration object (not set by default, so the bars are straight),
+>   the distance between the lines is the `--sm-lines-gap` variable.
+> - For more than `10` lines set the `--sm-lines` variable (for example, in your own CSS for the element).
+> - The `sm-item-lines` class without a number takes the number of the lines from the text of the element.
 
 ### Advanced Usage.
 
@@ -312,6 +328,8 @@ You can find all animation variables in the source file:
 | --sm-animation-pulse           | `--sm-animation-pulse: --sm-animation-pulse var(--sm-animation-duration) var(--sm-animation-timing-function) var(--sm-animation-delay) var(--sm-animation-iteration-count);`               | Sets `"pulse"` animation configuration for the `animation` props. Which includes the following options: <ul><li>[animation-name](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-name)</li><li>[animation-duration](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-duration)</li> <li>[animation-timing-function](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-timing-function)</li> <li>[animation-delay](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-delay)</li> <li>[animation-iteration-count](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-iteration-count)</li></ul>        |
 | --sm-reveal-duration           | `0.4s`                                                                                                                                                                                     | The duration of the `reveal` animation. |
 | --sm-reveal-timing-function    | `ease-out`                                                                                                                                                                                 | The [transition-timing-function](https://developer.mozilla.org/en-US/docs/Web/CSS/transition-timing-function) of the `reveal` transitions. |
+| --sm-lines-gap                 | `0.4lh`                                                                                                                                                                                    | The empty space between the lines of the text skeleton (the `sm-item-lines-N` classes). |
+| --sm-lines                     | not set                                                                                                                                                                                    | The number of the lines of the text skeleton. It is set by the `sm-item-lines-N` classes, and can be set for any number. |
 
 
 ## Contributing.
