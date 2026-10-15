@@ -1,0 +1,70 @@
+/* Text lines.
+The "sm-item-lines" classes (set along with "sm-item-primary" or "sm-item-secondary") draw the skeleton as the lines of the text,
+one bar per line of the element, instead of a solid block:
+- "sm-item-lines-1" ... "sm-item-lines-10" set the number of the lines, so they work for an empty element (the data is not loaded yet).
+  The element gets the height of that number of the lines (the "--sm-lines" variable, it can be set by a user for any number);
+- "sm-item-lines" without a number takes the number of the lines from the text of the element.
+The element should be a block (its height is set).
+
+The bars are cut from the skeleton with a mask. The mask is repeated every "1lh" (the line height of the element)
+and consists of 6 layers: two rectangles and 4 circles for the rounded corners of a bar.
+The radius of the bars is the "borderRadius" prop of the configuration object (see "appearance.scss"), it is not set by default.
+It can not be bigger than the half of the bar height, so "full" gives the pill bars.
+https://developer.mozilla.org/en-US/docs/Web/CSS/mask
+--------------------------------------------------------------------------------*/
+$lines-max: 10;
+
+/* The selector of all the "lines" classes: ".sm-item-lines, .sm-item-lines-1, ..., .sm-item-lines-10". */
+$lines-selector: ".sm-item-lines";
+
+@for $i from 1 through $lines-max {
+  $lines-selector: "#{$lines-selector}, .sm-item-lines-#{$i}";
+}
+
+@for $i from 1 through $lines-max {
+  .sm-loading .sm-item-lines-#{$i} {
+    --sm-lines: #{$i};
+  }
+}
+
+.sm-loading :is(#{$lines-selector}) {
+  /* The height is set by the number of the lines and the paddings are added to it. */
+  box-sizing: content-box;
+  min-height: calc(var(--sm-lines, 0) * 1lh);
+
+  /* The own radius of the element would cut the corners of the bars. */
+  border-radius: 0;
+
+  --_sm-gap: var(--sm-lines-gap);
+  --_sm-bar-top: calc(var(--_sm-gap) / 2);
+  --_sm-bar-bottom: calc(1lh - var(--_sm-gap) / 2);
+  --_sm-radius: min(var(--_sm-lines-radius, 0px), calc((1lh - var(--_sm-gap)) / 2));
+
+  mask-image:
+    /* The rectangle between the left and the right corners. */
+    linear-gradient(#0000 var(--_sm-bar-top), #000 0 var(--_sm-bar-bottom), #0000 0),
+    /* The rectangle between the top and the bottom corners. */ linear-gradient(#0000 calc(var(--_sm-bar-top) + var(--_sm-radius)), #000 0 calc(var(--_sm-bar-bottom) - var(--_sm-radius)), #0000 0),
+    /* The corners: top left, bottom left, top right, bottom right. */
+    radial-gradient(circle at var(--_sm-radius) calc(var(--_sm-bar-top) + var(--_sm-radius)), #000 calc(var(--_sm-radius) - 0.5px), #0000 var(--_sm-radius)),
+    radial-gradient(circle at var(--_sm-radius) calc(var(--_sm-bar-bottom) - var(--_sm-radius)), #000 calc(var(--_sm-radius) - 0.5px), #0000 var(--_sm-radius)),
+    radial-gradient(circle at var(--_sm-radius) calc(var(--_sm-bar-top) + var(--_sm-radius)), #000 calc(var(--_sm-radius) - 0.5px), #0000 var(--_sm-radius)),
+    radial-gradient(circle at var(--_sm-radius) calc(var(--_sm-bar-bottom) - var(--_sm-radius)), #000 calc(var(--_sm-radius) - 0.5px), #0000 var(--_sm-radius));
+  mask-size:
+    calc(100% - 2 * var(--_sm-radius)) 1lh,
+    100% 1lh,
+    calc(2 * var(--_sm-radius)) 1lh,
+    calc(2 * var(--_sm-radius)) 1lh,
+    calc(2 * var(--_sm-radius)) 1lh,
+    calc(2 * var(--_sm-radius)) 1lh;
+  mask-position:
+    var(--_sm-radius) 0,
+    0 0,
+    0 0,
+    0 0,
+    100% 0,
+    100% 0;
+  mask-repeat: repeat-y;
+  /* The lines of the text are in the content box. */
+  mask-origin: content-box;
+  mask-clip: content-box;
+}

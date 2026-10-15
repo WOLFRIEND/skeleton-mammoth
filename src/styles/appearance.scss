@@ -15,13 +15,16 @@ as the longer "selector .a, selector .b" form.
 /* { borderRadius: "0-32" | "full" }.
 ":where()" gives these rules zero specificity, so the own "border-radius" of the elements always takes precedence,
 and the prop is used only for the elements that do not have their own.
-"full" is the maximum radius: it gives a circle for a square element and a pill for a wide one. */
+"full" is the maximum radius: it gives a circle for a square element and a pill for a wide one.
+The same radius is the radius of the bars of the text lines (see "text-lines.scss"). */
 @each $border-radius in $sm-props-border-radius-types {
   :where(.sm-loading[data-sm-config*='"#{$sm-props-border-radius-name}":"#{$border-radius}"'] :is(.sm-item-primary, .sm-item-secondary)) {
     border-radius: #{$border-radius}px;
+    --_sm-lines-radius: #{$border-radius}px;
   }
 }
 
 :where(.sm-loading[data-sm-config*='"#{$sm-props-border-radius-name}":"#{$sm-props-border-radius-type-full}"'] :is(.sm-item-primary, .sm-item-secondary)) {
   border-radius: 9999px;
+  --_sm-lines-radius: 9999px;
 }

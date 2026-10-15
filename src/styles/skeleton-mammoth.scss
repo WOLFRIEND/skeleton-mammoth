@@ -1,9 +1,11 @@
 @use "variables/colors";
-@use "variables/animations" as animation-variables;
-@use "animations" as keyframes;
+@use "variables/animations";
+@use "variables/lines";
+@use "keyframes";
 @use "base-styles";
 @use "theme";
 @use "animation-types";
 @use "accessibility";
 @use "appearance";
 @use "reveal";
+@use "text-lines";
